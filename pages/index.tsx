@@ -4,8 +4,9 @@ import Footer from '../components/Footer'
 import styles from './index.module.scss'
 
 export default function Home() {
+  const theme = 'light';
   return (
-    <div className="container">
+    <div className={'container ' + theme}>
       <Head>
         <title>ToDo</title>
         <link rel="icon" href="/favicon.ico" />

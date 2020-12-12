@@ -1,15 +1,16 @@
 .bgImage {
   position: fixed;
-  height: 45vh;
+  height: 40vh;
   width: 100%;
   background-image: url('/images/bg-desktop-light.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center bottom;
+  background-size: contain;
+  background-position: center top;
 }
 
 @media(max-width: 375px) {
   .bgImage {
     height: 25vh;
+    background-size: cover;
   }
 }

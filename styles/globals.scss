@@ -33,8 +33,14 @@ code {
   align-items: center;
 }
 
-.light {
+$very-light-grey: hsl(0, 0%, 98%);
+$very-light-grey-blue: hsl(236, 33%, 92%);
+$light-grey-blue: hsl(233, 11%, 84%);
+$dark-grey-blue: hsl(236, 9%, 35%);
+$very-dark-grey-blue: hsl(236, 19%, 35%);
 
+.light {
+  background-color: $light-grey-blue;
 }
 
 .dark {
