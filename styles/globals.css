@@ -32,7 +32,7 @@ code {
   justify-content: center;
   align-items: center;
 }
-
+/*
 $very-light-grey: hsl(0, 0%, 98%);
 $very-light-grey-blue: hsl(236, 33%, 92%);
 $light-grey-blue: hsl(233, 11%, 84%);
@@ -41,8 +41,23 @@ $very-dark-grey-blue: hsl(236, 19%, 35%);
 
 .light {
   background-color: $light-grey-blue;
+    // width: 100%;
+  background-image: url('/images/bg-desktop-light.jpg');
+  // background-size: 40vh;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center top;
+  background-attachment: fixed;
 }
 
 .dark {
 
 }
+
+@media(max-width: 375px) {
+  .light {
+    // height: 25vh;
+    background-position: center top;
+    background-size: 800px auto;
+  }
+} */
