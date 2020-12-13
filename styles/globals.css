@@ -1,4 +1,4 @@
-html,
+/* html,
 body {
   padding: 0;
   margin: 0;
@@ -31,7 +31,7 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
 /*
 $very-light-grey: hsl(0, 0%, 98%);
 $very-light-grey-blue: hsl(236, 33%, 92%);

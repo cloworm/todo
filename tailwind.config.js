@@ -3,6 +3,7 @@ module.exports = {
   darkMode: 'class', // 'media' or 'class'
   theme: {
     colors: {
+      white: '#fff',
       light_veryLightGrey: 'hsl(0, 0%, 98%)',
       light_veryLightGreyBlue: 'hsl(236, 33%, 92%)',
       light_lightGreyBlue: 'hsl(233, 11%, 84%)',
@@ -22,7 +23,10 @@ module.exports = {
     extend: {
       backgroundImage: theme => ({
         'light-background': "url('/images/bg-desktop-light.jpg')"
-      })
+      }),
+      letterSpacing: {
+        widest: '.4em'
+      }
     },
   },
   variants: {

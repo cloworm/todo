@@ -9,7 +9,7 @@ const Layout = ({ children }: any) => {
   return (
     <ThemeProvider attribute="class">
       <div className="bg-light_lightGreyBlue dark:bg-dark_veryDarkGreyBlue min-h-screen bg-light-background bg-no-repeat bg-contain bg-center-top bg-fixed">
-        <main className="mt-4">{children}</main>
+        <main>{children}</main>
       </div>
     </ThemeProvider>
   )
