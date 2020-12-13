@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Footer from '../components/Footer'
 import Toggle from '../components/Toggle'
 import Input from '../components/Input'
+import List from '../components/List'
 
 export default function Home() {
 
@@ -23,6 +24,8 @@ export default function Home() {
           </p>
 
           <Input rounded={true} />
+
+          <List />
         </div>
       </main>
 

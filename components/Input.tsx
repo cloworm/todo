@@ -1,12 +1,33 @@
+import { useState } from 'react'
 import Checkbox from './Checkbox'
 
-const Input = ({ rounded }: { rounded?: boolean }) => {
+interface Props {
+  completed?: boolean
+  rounded?: boolean
+  value?: string
+  onChange?: any
+}
+
+const Input = ({ rounded, value = '', completed, onChange }: Props) => {
+  const [text, setText] = useState(value)
+
+  const update = (e: any) => {
+    setText(e.target.value)
+    if (typeof onChange === 'function') {
+      onChange(e.target.value)
+    }
+  }
+
   return (
     <div className="relative">
-      <Checkbox />
+      <Checkbox completed={completed} />
+
       <input
-        className={`w-full text-light_lightGreyBlue dark:bg-dark_veryDarkDesaturatedBlue py-3 pr-4 pl-16 focus:outline-none ${rounded ? 'rounded' : ''}`}
+        type="text"
+        className={`w-full text-light_lightGreyBlue dark:bg-dark_veryDarkDesaturatedBlue py-3 pr-4 pl-16 focus:outline-none disabled:text-light_darkGreyBlue ${rounded ? 'rounded' : ''}`}
         placeholder="Create a new todo.."
+        value={text}
+        onChange={update}
       />
     </div>
   )
