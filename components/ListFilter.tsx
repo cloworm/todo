@@ -7,7 +7,6 @@ const ListFilter = () => {
   const [filter, setFilter] = useRecoilState(todoFilterState)
 
   const updateFilter = useCallback((value: string) => {
-    // console.log('value', value);
     setFilter(value)
   }, [])
 

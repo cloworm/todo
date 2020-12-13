@@ -5,22 +5,46 @@ interface Props {
   completed?: boolean
   rounded?: boolean
   value?: string
-  onChange?: any
+  onInputChange?: (value: string) => any
+  onCheckboxChange?: (checked: boolean) => any
 }
 
-const Input = ({ rounded, value = '', completed, onChange }: Props) => {
+const Input = ({ rounded, value = '', completed, onInputChange, onCheckboxChange }: Props) => {
   const [text, setText] = useState(value)
+  const [checked, setChecked] = useState(completed)
 
   const update = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value)
-    if (typeof onChange === 'function') {
-      onChange(e.target.value)
+    if (typeof onInputChange === 'function') {
+      onInputChange(e.target.value)
+    }
+  }
+
+  const update2 = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(e.target.checked)
+    if (typeof onCheckboxChange === 'function') {
+      onCheckboxChange(e.target.checked)
     }
   }
 
   return (
     <div className="relative">
-      <Checkbox completed={completed} />
+      {/* <Checkbox completed={completed} onChange={() => toggleCompleted()} /> */}
+
+      <div className="absolute top-2.5 left-5">
+        <div className="relative">
+          <input
+            type="checkbox"
+            className="form-checkbox border rounded-full focus:outline-none h-6 w-6 cursor-pointer"
+            defaultChecked={checked}
+            onChange={update2}
+          />
+          <img
+            className="absolute top-2 left-1.5 pointer-events-none"
+            src="/images/icon-check.svg"
+          />
+        </div>
+      </div>
 
       <input
         type="text"
