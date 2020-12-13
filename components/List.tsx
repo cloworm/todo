@@ -3,6 +3,7 @@ import { useRecoilValue } from 'recoil'
 
 import Input from './Input'
 import ListFilter from './ListFilter'
+import ItemsLeft from './ItemsLeft'
 import filteredTodoState from '../recoil/selectors/todo-filter'
 
 const List = () => {
@@ -35,9 +36,7 @@ const List = () => {
       }
 
       <div className="text-sm px-6 py-4 flex w-full justify-between">
-        <div className="text-light_lightGreyBlue">
-          1 item left
-        </div>
+        <ItemsLeft />
 
         <ListFilter />
 
