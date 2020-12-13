@@ -9,7 +9,7 @@ const Input = () => {
       ></span> */}
       <input
         className="w-full rounded text-light_lightGreyBlue dark:bg-dark_veryDarkDesaturatedBlue py-3 pr-4 pl-16 focus:outline-none"
-        placeholder="Create a new todo.."
+        placeholder="Create a new todo..."
       />
     </div>
   )
