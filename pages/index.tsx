@@ -22,7 +22,7 @@ export default function Home() {
             <Toggle />
           </p>
 
-          <Input />
+          <Input rounded={true} />
         </div>
       </main>
 

@@ -1,15 +1,12 @@
 import Checkbox from './Checkbox'
 
-const Input = () => {
+const Input = ({ rounded }: { rounded?: boolean }) => {
   return (
     <div className="relative">
       <Checkbox />
-      {/* <span
-        className="absolute h-6 w-6 top-2.5 left-5 border border-light_veryLightGreyBlue rounded-full cursor-pointer"
-      ></span> */}
       <input
-        className="w-full rounded text-light_lightGreyBlue dark:bg-dark_veryDarkDesaturatedBlue py-3 pr-4 pl-16 focus:outline-none"
-        placeholder="Create a new todo..."
+        className={`w-full text-light_lightGreyBlue dark:bg-dark_veryDarkDesaturatedBlue py-3 pr-4 pl-16 focus:outline-none ${rounded ? 'rounded' : ''}`}
+        placeholder="Create a new todo.."
       />
     </div>
   )
