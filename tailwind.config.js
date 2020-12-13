@@ -14,7 +14,6 @@ module.exports = {
         widest: '.4em'
       },
       colors: {
-        white: '#fff',
         light_veryLightGrey: 'hsl(0, 0%, 98%)',
         light_veryLightGreyBlue: 'hsl(236, 33%, 92%)',
         light_lightGreyBlue: 'hsl(233, 11%, 84%)',

@@ -5,10 +5,10 @@ const Checkbox = () => {
       <div className="relative">
         <input
           type="checkbox"
-          className="form-checkbox border rounded-full focus:outline-none h-6 w-6"
+          className="form-checkbox border rounded-full focus:outline-none h-6 w-6 cursor-pointer"
         />
         <img
-          className="absolute top-2 left-1.5"
+          className="absolute top-2 left-1.5 pointer-events-none"
           src="/images/icon-check.svg"
         />
       </div>
