@@ -57,13 +57,15 @@ const List = () => {
         })
       }
 
-      <div className="text-sm px-6 py-4 flex w-full justify-between">
-        <ItemsLeft />
+      <div className="text-sm px-6 py-4 flex w-full">
+        <div className="flex flex-1">
+          <ItemsLeft />
+        </div>
 
         <ListFilter />
 
-        <div className="text-light_lightGreyBlue">
-          Clear Completed
+        <div className="flex justify-end flex-1 text-light_lightGreyBlue">
+          <div>Clear Completed</div>
         </div>
       </div>
     </div>

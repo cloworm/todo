@@ -11,7 +11,7 @@ const ListFilter = () => {
   }, [])
 
   return (
-    <div className="text-light_darkGreyBlue font-bold">
+    <div className="text-light_darkGreyBlue font-bold text-center">
       <span className="px-2 cursor-pointer" onClick={() => updateFilter('Show All')}>
         All
       </span>
