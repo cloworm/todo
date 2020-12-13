@@ -12,13 +12,13 @@ const ListFilter = () => {
 
   return (
     <div className="text-light_darkGreyBlue font-bold text-center">
-      <span className="px-2 cursor-pointer" onClick={() => updateFilter('Show All')}>
+      <span className={`px-2 cursor-pointer ${filter === 'Show All' ? 'text-brightBlue' : ''}`} onClick={() => updateFilter('Show All')}>
         All
       </span>
-      <span className="px-2 cursor-pointer" onClick={() => updateFilter('Show Active')}>
+      <span className={`px-2 cursor-pointer ${filter === 'Show Active' ? 'text-brightBlue' : ''}`} onClick={() => updateFilter('Show Active')}>
         Active
       </span>
-      <span className="px-2 cursor-pointer" onClick={() => updateFilter('Show Completed')}>
+      <span className={`px-2 cursor-pointer ${filter === 'Show Completed' ? 'text-brightBlue' : ''}`} onClick={() => updateFilter('Show Completed')}>
         Completed
       </span>
     </div>
