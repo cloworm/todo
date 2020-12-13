@@ -1,5 +1,5 @@
+import { useEffect, useState, useCallback } from 'react'
 import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
 
 const Toggle = () => {
   const { theme, setTheme } = useTheme()
@@ -10,8 +10,7 @@ const Toggle = () => {
     setIsMounted(() => true)
   }, [])
 
-  // TODO - usecallback
-  const switchTheme = () => {
+  const switchTheme = useCallback(() => {
     if (isMounted) {
       if (theme === 'light') {
         setTheme('dark')
@@ -22,7 +21,7 @@ const Toggle = () => {
       setTheme('light')
       setSrc('/images/icon-moon.svg')
     }
-  };
+  }, [theme, setTheme, setSrc, isMounted]);
 
   return (
     <a className="float-right cursor-pointer" onClick={switchTheme}>

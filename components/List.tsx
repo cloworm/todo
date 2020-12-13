@@ -17,7 +17,7 @@ const List = () => {
   }
 
   return (
-    <div className="divide-y divide-dark_veryDarkGreyBlue rounded mt-8 bg-white dark:bg-dark_veryDarkDesaturatedBlue">
+    <div className="divide-y divide-light_veryLightGreyBlue rounded mt-8 bg-white dark:bg-dark_veryDarkDesaturatedBlue">
       {
         todos.map((todo, idx) => {
           return (
