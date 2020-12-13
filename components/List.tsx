@@ -20,16 +20,18 @@ const List = () => {
   }
 
   return (
-    <div className="rounded mt-8 bg-white dark:bg-dark_veryDarkDesaturatedBlue">
+    <div className="divide-y divide-light_veryLightGreyBlue rounded mt-8 bg-white dark:bg-dark_veryDarkDesaturatedBlue">
       {
         todos.map((todo, idx) => {
           return (
-            <Input
-              key={idx}
-              value={todo.value}
-              completed={todo.completed}
-              onChange={(e: any) => handleTodoChange(idx, e)}
-            />
+            <div key={idx}>
+              <Input
+                key={`input$-{idx}`}
+                value={todo.value}
+                completed={todo.completed}
+                onChange={(e: any) => handleTodoChange(idx, e)}
+              />
+            </div>
           )
         })
       }
