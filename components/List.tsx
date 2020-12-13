@@ -31,26 +31,34 @@ const List = () => {
     setTodos(newList)
   }
 
-    function replaceItemAtIndex(arr: any, index: number, newValue: any) {
-      return [...arr.slice(0, index), newValue, ...arr.slice(index + 1)];
-    }
+  const handleDelete = (idx: number) => {
+    const newList = removeItemAtIndex(todos, idx)
 
-    function removeItemAtIndex(arr: any, index: number) {
-      return [...arr.slice(0, index), ...arr.slice(index + 1)];
-    }
+    setTodos(newList)
+  }
+
+  function replaceItemAtIndex(arr: any, index: number, newValue: any) {
+    return [...arr.slice(0, index), newValue, ...arr.slice(index + 1)];
+  }
+
+  function removeItemAtIndex(arr: any, index: number) {
+    return [...arr.slice(0, index), ...arr.slice(index + 1)];
+  }
 
   return (
     <div className="divide-y divide-light_veryLightGreyBlue rounded mt-8 bg-white dark:bg-dark_veryDarkDesaturatedBlue">
       {
         todos.map((todo, idx) => {
           return (
-            <div key={idx}>
+            <div key={todo.id}>
               <Input
-                key={`input$-{idx}`}
+                key={`input-${todo.id}`}
                 value={todo.value}
                 completed={todo.completed}
                 onInputChange={(value: string) => handleTodoChange(idx, value)}
                 onCheckboxChange={(completed: boolean) => handleCompletedChange(idx, completed)}
+                onDelete={() => handleDelete(idx)}
+                readonly={true}
               />
             </div>
           )
