@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Toggle from '../components/Toggle'
 import Input from '../components/Input'
