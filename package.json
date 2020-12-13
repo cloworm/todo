@@ -10,6 +10,7 @@
     "netlify:dev": "netlify dev"
   },
   "dependencies": {
+    "@tailwindcss/custom-forms": "^0.2.1",
     "next": "10.0.1",
     "next-themes": "0.0.10",
     "react": "17.0.1",
