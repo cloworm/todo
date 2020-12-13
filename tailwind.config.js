@@ -22,7 +22,8 @@ module.exports = {
     },
     extend: {
       backgroundImage: theme => ({
-        'light-background': "url('/images/bg-desktop-light.jpg')"
+        'light-background': "url('/images/bg-desktop-light.jpg')",
+        'dark-background': "url('/images/bg-desktop-dark.jpg')"
       }),
       letterSpacing: {
         widest: '.4em'
@@ -30,7 +31,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundImage: ['dark']
+    },
   },
   plugins: [],
 }
