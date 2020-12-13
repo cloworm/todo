@@ -1,16 +1,13 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
+import { useRecoilState } from 'recoil'
+
 import Input from './Input'
+import todoState from '../recoil/atoms/todo'
 
 const List = () => {
-  const [todos, setTodos] = useState([
-    { value: 'Jog around the park 3x', completed: true },
-    { value: '10 minutes meditation', completed: false },
-    { value: 'Read for 1 hour', completed: false },
-    { value: 'Pick up groceries', completed: false },
-    { value: 'Complete Todo App on Frontend Mentor', completed: false },
-  ])
+  const [todos, setTodos] = useRecoilState(todoState)
 
-  const handleTodoChange = (idx: number, event: any) => {
+  const handleTodoChange = (idx: number, event: React.ChangeEvent<HTMLInputElement>) => {
     const todosCopy = todos.slice()
     todosCopy[idx] = {
       value: event?.target?.value,
@@ -20,7 +17,7 @@ const List = () => {
   }
 
   return (
-    <div className="divide-y divide-light_veryLightGreyBlue rounded mt-8 bg-white dark:bg-dark_veryDarkDesaturatedBlue">
+    <div className="divide-y divide-dark_veryDarkGreyBlue rounded mt-8 bg-white dark:bg-dark_veryDarkDesaturatedBlue">
       {
         todos.map((todo, idx) => {
           return (
@@ -29,7 +26,7 @@ const List = () => {
                 key={`input$-{idx}`}
                 value={todo.value}
                 completed={todo.completed}
-                onChange={(e: any) => handleTodoChange(idx, e)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleTodoChange(idx, e)}
               />
             </div>
           )

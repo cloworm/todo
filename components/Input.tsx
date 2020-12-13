@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import Checkbox from './Checkbox'
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
 const Input = ({ rounded, value = '', completed, onChange }: Props) => {
   const [text, setText] = useState(value)
 
-  const update = (e: any) => {
+  const update = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value)
     if (typeof onChange === 'function') {
       onChange(e.target.value)
