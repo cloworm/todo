@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Toggle from '../components/Toggle'
+import Input from '../components/Input'
 
 export default function Home() {
 
@@ -17,10 +18,12 @@ export default function Home() {
 
       <main className="flex-1 w-1/2">
         <div>
-          <p className="text-3xl text-white font-bold tracking-widest pt-10">
+          <p className="text-3xl text-white font-bold tracking-widest pt-10 pb-6">
             TODO
             <Toggle />
           </p>
+
+          <Input />
         </div>
       </main>
 

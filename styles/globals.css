@@ -1,63 +1,16 @@
-/* html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+.test {
+  /* light */
+  color: hsl(0, 0%, 98%);
+  color: hsl(236, 33%, 92%);
+  color: hsl(233, 11%, 84%);
+  color: hsl(236, 9%, 61%);
+  color: hsl(235, 19%, 35%);
+  /* dark */
+  color: hsl(235, 21%, 11%);
+  color: hsl(235, 24%, 19%);
+  color: hsl(234, 39%, 85%);
+  color: hsl(236, 33%, 92%);
+  color: hsl(234, 11%, 52%);
+  color: hsl(233, 14%, 35%);
+  color: hsl(237, 14%, 26%);
 }
-
-* {
-  box-sizing: border-box;
-}
-
-main {
-  width: 100%;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-family: Menlo, Monaco, Lucida Console, Courier New, monospace;
-}
-
-.container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
-/*
-$very-light-grey: hsl(0, 0%, 98%);
-$very-light-grey-blue: hsl(236, 33%, 92%);
-$light-grey-blue: hsl(233, 11%, 84%);
-$dark-grey-blue: hsl(236, 9%, 35%);
-$very-dark-grey-blue: hsl(236, 19%, 35%);
-
-.light {
-  background-color: $light-grey-blue;
-    // width: 100%;
-  background-image: url('/images/bg-desktop-light.jpg');
-  // background-size: 40vh;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center top;
-  background-attachment: fixed;
-}
-
-.dark {
-
-}
-
-@media(max-width: 375px) {
-  .light {
-    // height: 25vh;
-    background-position: center top;
-    background-size: 800px auto;
-  }
-} */

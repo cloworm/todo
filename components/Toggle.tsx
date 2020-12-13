@@ -1,10 +1,9 @@
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
-
-
 const Toggle = () => {
   const { theme, setTheme } = useTheme()
+  const [src, setSrc] = useState('/images/icon-moon.svg')
   const [isMounted, setIsMounted ] = useState(false)
 
   useEffect(() => {
@@ -14,21 +13,20 @@ const Toggle = () => {
   // TODO - usecallback
   const switchTheme = () => {
     if (isMounted) {
-      setTheme(theme === "light" ? "dark" : "light");
+      if (theme === 'light') {
+        setTheme('dark')
+        setSrc('/images/icon-sun.svg')
+        return
+      }
+
+      setTheme('light')
+      setSrc('/images/icon-moon.svg')
     }
   };
 
-  if (theme === 'light') {
-    return (
-      <a className="float-right cursor-pointer" onClick={switchTheme}>
-      <img src="/images/icon-moon.svg" />
-    </a>
-    )
-  }
-
   return (
     <a className="float-right cursor-pointer" onClick={switchTheme}>
-      <img src="/images/icon-sun.svg" />
+      <img src={src} />
     </a>
   )
 }

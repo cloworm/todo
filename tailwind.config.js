@@ -32,7 +32,7 @@ module.exports = {
   },
   variants: {
     extend: {
-      backgroundImage: ['dark']
+      backgroundImage: ['dark'],
     },
   },
   plugins: [],
