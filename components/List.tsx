@@ -1,19 +1,20 @@
 import React, { useState } from 'react'
-import { useRecoilState } from 'recoil'
+import { useRecoilValue } from 'recoil'
 
 import Input from './Input'
-import todoState from '../recoil/atoms/todo'
+import ListFilter from './ListFilter'
+import filteredTodoState from '../recoil/selectors/todo-filter'
 
 const List = () => {
-  const [todos, setTodos] = useRecoilState(todoState)
+  const todos = useRecoilValue(filteredTodoState)
 
   const handleTodoChange = (idx: number, event: React.ChangeEvent<HTMLInputElement>) => {
-    const todosCopy = todos.slice()
-    todosCopy[idx] = {
-      value: event?.target?.value,
-      completed: todos[idx]?.completed
-    }
-    setTodos(todosCopy)
+    // const todosCopy = todos.slice()
+    // todosCopy[idx] = {
+    //   value: event?.target?.value,
+    //   completed: todos[idx]?.completed
+    // }
+    // setTodos(todosCopy)
   }
 
   return (
@@ -37,17 +38,9 @@ const List = () => {
         <div className="text-light_lightGreyBlue">
           1 item left
         </div>
-        <div className="text-light_darkGreyBlue font-bold">
-          <span className="px-2">
-            All
-          </span>
-          <span className="px-2">
-            Active
-          </span>
-          <span className="px-2">
-            Completed
-          </span>
-        </div>
+
+        <ListFilter />
+
         <div className="text-light_lightGreyBlue">
           Clear Completed
         </div>
