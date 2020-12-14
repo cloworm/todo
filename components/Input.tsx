@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 interface Props {
   completed?: boolean
@@ -13,31 +13,17 @@ interface Props {
 
 const Input = ({ rounded, value = '', completed, onInputChange, onCheckboxChange, showDelete, onDelete, readonly }: Props) => {
   const updateInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (typeof onInputChange === 'function') {
-      onInputChange(e.target.value)
-    }
+    onInputChange(e.target.value)
   }
 
   const updateChecked = (e: React.ChangeEvent<HTMLInputElement>) => {
-    manuallyUpdateChecked(e.target.checked)
+    onCheckboxChange(e.target.checked)
   }
 
-  const deleteTodo = () => {
-    if (typeof onDelete === 'function') {
-      onDelete()
-    }
-  }
-
-  const manuallyUpdateChecked = (checked: boolean) => {
-    if (typeof onCheckboxChange === 'function') {
-      onCheckboxChange(checked)
-    }
-  }
-
-  const handleInputClick = (e: React.MouseEvent<HTMLElement>) => {
+  const handleInputClick = () => {
     if (!readonly) return
 
-    manuallyUpdateChecked(!completed)
+    onCheckboxChange(!completed)
   }
 
   return (
@@ -81,7 +67,7 @@ const Input = ({ rounded, value = '', completed, onInputChange, onCheckboxChange
       <img
         src="/images/icon-cross.svg"
         className={`absolute top-3.5 right-5 cursor-pointer w-5 h-5 p-1 ${showDelete ? '' : 'invisible'}`}
-        onClick={deleteTodo}
+        onClick={onDelete}
       />
     </div>
   )
