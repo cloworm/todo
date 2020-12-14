@@ -37,6 +37,12 @@ const List = () => {
     setTodos(newList)
   }
 
+  const handleClearCompleted = () => {
+    const newList = todoList.filter((todo) => !todo.completed)
+
+    setTodos(newList)
+  }
+
   function replaceItemAtIndex(arr: any, index: number, newValue: any) {
     return [...arr.slice(0, index), newValue, ...arr.slice(index + 1)];
   }
@@ -59,6 +65,7 @@ const List = () => {
                 onCheckboxChange={(completed: boolean) => handleCompletedChange(idx, completed)}
                 onDelete={() => handleDelete(idx)}
                 readonly={true}
+                showDelete
               />
             </div>
           )
@@ -72,8 +79,8 @@ const List = () => {
 
         <ListFilter />
 
-        <div className="flex justify-end flex-1 text-light_lightGreyBlue">
-          <div>Clear Completed</div>
+        <div className="flex justify-end flex-1 text-light_lightGreyBlue cursor-pointer">
+          <div onClick={handleClearCompleted}>Clear Completed</div>
         </div>
       </div>
     </div>
