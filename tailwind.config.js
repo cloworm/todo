@@ -32,13 +32,24 @@ module.exports = {
     customForms: theme => ({
       default: {
         checkbox: {
-          icon: '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>',
           '&:checked': {
             backgroundImage: `linear-gradient(to right bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%))`,
           },
           '&:hover:not(:checked)': {
             background: `
               linear-gradient(#fff, #fff) padding-box,
+              linear-gradient(to right bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box
+            `,
+            border: '1px solid transparent',
+            borderRadius: '9999px',
+          }
+        }
+      },
+      dark: {
+        checkbox: {
+          '&:hover:not(:checked)': {
+            background: `
+              linear-gradient(hsl(235, 24%, 19%), hsl(235, 24%, 19%)) padding-box,
               linear-gradient(to right bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box
             `,
             border: '1px solid transparent',

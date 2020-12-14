@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react'
+import { useTheme } from 'next-themes'
 
 import Todo from '../types/todo.type'
 
@@ -23,6 +24,7 @@ const Input = ({
   readonly,
   showDelete,
 }: Props) => {
+  const { theme, setTheme } = useTheme()
   const updateInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     onInputChange(e.target.value)
   }, [onInputChange])
@@ -38,9 +40,8 @@ const Input = ({
   }, [onCheckboxChange, readonly, todo])
 
   const handleSubmit = useCallback((e) => {
-    if (e.code === 'Enter') {
-      onSubmit()
-    }
+    e.preventDefault()
+    onSubmit()
   }, [onSubmit])
 
   if (!todo) return (<div></div>)
@@ -51,38 +52,55 @@ const Input = ({
         <div className="relative">
           <input
             type="checkbox"
-            className="form-checkbox border rounded-full focus:outline-none h-6 w-6 cursor-pointer"
+            className={`
+              form-checkbox
+              dark:bg-dark_veryDarkDesaturatedBlue
+              border
+              rounded-full
+              focus:outline-none
+              h-6
+              w-6
+              cursor-pointer
+              ${theme === 'dark' ? 'form-checkbox-dark' : ''}
+            `}
             checked={todo.completed}
             onChange={updateChecked}
           />
           <img
-            className="absolute top-2 left-1.5 pointer-events-none"
+            className={`
+              absolute
+              top-2
+              left-1.5
+              pointer-events-none
+              ${todo.completed ? '' : 'invisible' }
+            `}
             src="/images/icon-check.svg"
           />
         </div>
       </div>
 
-      <input
-        type="text"
-        className={`
-          w-full
-          focus:outline-none
-          py-3
-          pr-4
-          pl-16
-          dark:bg-dark_veryDarkDesaturatedBlue
-          disabled:text-light_darkGreyBlue
-          cursor-pointer
-          ${rounded ? 'rounded' : ''}
-          ${todo.completed ? 'line-through text-light_lightGreyBlue' : 'text-light_darkGreyBlue'}
-        `}
-        placeholder="Create a new todo.."
-        value={todo.value}
-        onChange={updateInput}
-        onClick={handleInputClick}
-        readOnly={readonly}
-        onKeyUp={handleSubmit}
-      />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          className={`
+            w-full
+            focus:outline-none
+            py-3
+            pr-4
+            pl-16
+            dark:bg-dark_veryDarkDesaturatedBlue
+            disabled:text-light_darkGreyBlue
+            cursor-pointer
+            ${rounded ? 'rounded' : ''}
+            ${todo.completed ? 'line-through text-light_lightGreyBlue' : 'text-light_darkGreyBlue'}
+          `}
+          placeholder="Create a new todo.."
+          value={todo.value}
+          onChange={updateInput}
+          onClick={handleInputClick}
+          readOnly={readonly}
+        />
+      </form>
 
       <img
         src="/images/icon-cross.svg"

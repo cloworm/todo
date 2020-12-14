@@ -32,7 +32,6 @@ export default function Home() {
   }
 
   const handleSubmit = () => {
-
     setTodos((oldTodos) => [
       {
         ...todo,
