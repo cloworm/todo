@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { ReactElement, useCallback } from 'react'
 import { useTheme } from 'next-themes'
 
 import Todo from '../types/todo.type'
@@ -22,7 +22,7 @@ const Input = ({
   onDelete,
   rounded,
   readonly,
-}: Props) => {
+}: Props): ReactElement => {
   const { theme } = useTheme()
   const isMounted = useIsMounted()
   const updateInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {

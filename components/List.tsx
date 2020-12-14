@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { useRecoilValue } from 'recoil'
 
 import Input from './Input'
@@ -7,7 +7,7 @@ import ItemsLeft from './ItemsLeft'
 import filteredTodoState from '../recoil/selectors/todo-filter'
 import useTodos from './hooks/useTodos'
 
-const List = () => {
+const List = (): ReactElement => {
   const todos = useRecoilValue(filteredTodoState)
   const {
     clearCompletedTodos,

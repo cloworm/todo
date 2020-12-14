@@ -1,9 +1,10 @@
 import { useCallback } from 'react'
 import { useTheme } from 'next-themes'
+import { ReactElement } from 'react'
 
 import useIsMounted from './hooks/useIsMounted'
 
-const Toggle = () => {
+const Toggle = (): ReactElement|null => {
   const { theme, setTheme } = useTheme()
   const isMounted = useIsMounted()
 
@@ -16,7 +17,7 @@ const Toggle = () => {
 
       setTheme('light')
     }
-  }, [theme, setTheme, isMounted]);
+  }, [theme, setTheme, isMounted])
 
   if (!isMounted) return null
 

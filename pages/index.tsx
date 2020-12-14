@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { ReactNode, useState } from 'react'
+import { ReactElement, useState } from 'react'
 
 import Footer from '../components/Footer'
 import Toggle from '../components/Toggle'
@@ -8,7 +8,7 @@ import List from '../components/List'
 import Todo from '../types/todo.type'
 import useTodos from '../components/hooks/useTodos'
 
-export default function Home(): ReactNode {
+export default function Home(): ReactElement {
   const { addTodo } = useTodos()
   const [todo, setTodo] = useState(new Todo({
     value: '',

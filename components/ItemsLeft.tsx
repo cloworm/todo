@@ -1,8 +1,9 @@
+import { ReactElement } from 'react'
 import { useRecoilValue } from 'recoil'
 
 import todoStatsState from '../recoil/selectors/todo-stats'
 
-const ItemsLeft = () => {
+const ItemsLeft = (): ReactElement => {
   const { totalUncompletedNum } = useRecoilValue(todoStatsState)
 
   return (
