@@ -1,3 +1,4 @@
+/* eslint-env node */
 module.exports = {
   'env': {
     'browser': true,
@@ -37,6 +38,8 @@ module.exports = {
     'semi': [
       'error',
       'never'
-    ]
+    ],
+    // suppress errors for missing 'import React' in files
+    'react/react-in-jsx-scope': 'off',
   }
 }

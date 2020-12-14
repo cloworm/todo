@@ -10,7 +10,7 @@ const useTodos = () => {
   const todos = useRecoilValue(filteredTodoState)
   const [todoList, setTodos] = useRecoilState(todoState)
 
-  const addTodo = () => {
+  const addTodo = (todo: Todo) => {
 
   }
 

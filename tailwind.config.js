@@ -1,3 +1,4 @@
+/* eslint-env node */
 module.exports = {
   purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class', // 'media' or 'class'
@@ -7,8 +8,8 @@ module.exports = {
     },
     extend: {
       backgroundImage: theme => ({
-        'light-background': "url('/images/bg-desktop-light.jpg')",
-        'dark-background': "url('/images/bg-desktop-dark.jpg')"
+        'light-background': 'url(\'/images/bg-desktop-light.jpg\')',
+        'dark-background': 'url(\'/images/bg-desktop-dark.jpg\')'
       }),
       letterSpacing: {
         widest: '.4em'
@@ -33,7 +34,7 @@ module.exports = {
       default: {
         checkbox: {
           '&:checked': {
-            backgroundImage: `linear-gradient(to right bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%))`,
+            backgroundImage: 'linear-gradient(to right bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%))',
           },
           '&:hover:not(:checked)': {
             background: `

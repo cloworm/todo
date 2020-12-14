@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 import { useSetRecoilState } from 'recoil'
 import shortid from 'shortid'
 
@@ -10,7 +10,7 @@ import List from '../components/List'
 import Todo from '../types/todo.type'
 import todoState from '../recoil/atoms/todo'
 
-export default function Home() {
+export default function Home(): ReactNode {
   const setTodos = useSetRecoilState(todoState)
   const [todo, setTodo] = useState(new Todo({
     value: '',
