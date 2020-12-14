@@ -14,7 +14,7 @@ const useTodos = () => {
 
   }
 
-  const updateTodoValue = (idx: number, value: string): void => {
+  const updateTodoValue = useCallback((idx: number, value: string): void => {
     const item = todos[idx]
     const newList = replaceItemAtIndex(todos, idx, {
       ...item,
@@ -22,9 +22,9 @@ const useTodos = () => {
     })
 
     setTodos(newList)
-  }
+  }, [setTodos, todos])
 
-  const updateTodoCompleted = (idx: number, completed: boolean): void => {
+  const updateTodoCompleted = useCallback((idx: number, completed: boolean): void => {
     const item = todos[idx]
     const newList = replaceItemAtIndex(todos, idx, {
       ...item,
@@ -32,19 +32,19 @@ const useTodos = () => {
     })
 
     setTodos(newList)
-  }
+  }, [setTodos, todos])
 
-  const deleteTodo = (idx: number): void => {
+  const deleteTodo = useCallback((idx: number): void => {
     const newList = removeItemAtIndex(todos, idx)
 
     setTodos(newList)
-  }
+  }, [setTodos, todos])
 
-  const clearCompletedTodos = (): void => {
+  const clearCompletedTodos = useCallback((): void => {
     const newList = todoList.filter((todo) => !todo.completed)
 
     setTodos(newList)
-  }
+  }, [setTodos, todoList])
 
   return {
     addTodo,
