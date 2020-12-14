@@ -25,15 +25,35 @@ module.exports = {
         dark_lightGreyBlueHover: 'hsl(236, 33%, 92%)',
         dark_darkGreyBlue: 'hsl(234, 11%, 52%)',
         dark_veryDarkGreyBlue: 'hsl(233, 14%, 35%)',
-        dark_veryDarkGreyBlue2: 'hsl(237, 14%, 26%)'
+        dark_veryDarkGreyBlue2: 'hsl(237, 14%, 26%)',
+        brightBlue: 'hsl(220, 98%, 61%)'
       },
     },
     customForms: theme => ({
       default: {
         checkbox: {
-          icon: '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>',
           '&:checked': {
-            backgroundImage: `linear-gradient(to right bottom, rgb(111, 192, 253), rgb(169, 111, 238))`,
+            backgroundImage: `linear-gradient(to right bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%))`,
+          },
+          '&:hover:not(:checked)': {
+            background: `
+              linear-gradient(#fff, #fff) padding-box,
+              linear-gradient(to right bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box
+            `,
+            border: '1px solid transparent',
+            borderRadius: '9999px',
+          }
+        }
+      },
+      dark: {
+        checkbox: {
+          '&:hover:not(:checked)': {
+            background: `
+              linear-gradient(hsl(235, 24%, 19%), hsl(235, 24%, 19%)) padding-box,
+              linear-gradient(to right bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box
+            `,
+            border: '1px solid transparent',
+            borderRadius: '9999px',
           }
         }
       }

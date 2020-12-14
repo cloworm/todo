@@ -1,31 +1,28 @@
-import { useEffect, useState, useCallback } from 'react'
+import { useCallback } from 'react'
 import { useTheme } from 'next-themes'
+
+import useIsMounted from './hooks/useIsMounted'
 
 const Toggle = () => {
   const { theme, setTheme } = useTheme()
-  const [src, setSrc] = useState('/images/icon-moon.svg')
-  const [isMounted, setIsMounted ] = useState(false)
-
-  useEffect(() => {
-    setIsMounted(() => true)
-  }, [])
+  const isMounted = useIsMounted()
 
   const switchTheme = useCallback(() => {
     if (isMounted) {
       if (theme === 'light') {
         setTheme('dark')
-        setSrc('/images/icon-sun.svg')
         return
       }
 
       setTheme('light')
-      setSrc('/images/icon-moon.svg')
     }
-  }, [theme, setTheme, setSrc, isMounted]);
+  }, [theme, setTheme, isMounted]);
+
+  if (!isMounted) return null
 
   return (
     <a className="float-right cursor-pointer" onClick={switchTheme}>
-      <img src={src} />
+      <img src={theme === 'light' ? '/images/icon-moon.svg' : '/images/icon-sun.svg'} />
     </a>
   )
 }

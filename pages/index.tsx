@@ -1,10 +1,50 @@
 import Head from 'next/head'
+import { useState } from 'react'
+import { useSetRecoilState } from 'recoil'
+import shortid from 'shortid'
+
 import Footer from '../components/Footer'
 import Toggle from '../components/Toggle'
 import Input from '../components/Input'
 import List from '../components/List'
+import Todo from '../types/todo.type'
+import todoState from '../recoil/atoms/todo'
 
 export default function Home() {
+  const setTodos = useSetRecoilState(todoState)
+  const [todo, setTodo] = useState(new Todo({
+    value: '',
+    completed: false
+  }))
+
+  const handleInputChange = (value: string) => {
+    setTodo({
+      ...todo,
+      value
+    })
+  }
+
+  const handleCheckboxChange = (completed: boolean) => {
+    setTodo({
+      ...todo,
+      completed
+    })
+  }
+
+  const handleSubmit = () => {
+    setTodos((oldTodos) => [
+      {
+        ...todo,
+        id: shortid.generate()
+      },
+      ...oldTodos,
+    ])
+
+    setTodo(new Todo({
+      value: '',
+      completed: false
+    }))
+  }
 
   return (
     <div className="min-h-screen flex flex-col items-center">
@@ -23,7 +63,13 @@ export default function Home() {
             <Toggle />
           </p>
 
-          <Input rounded={true} />
+          <Input
+            todo={todo}
+            rounded={true}
+            onInputChange={handleInputChange}
+            onCheckboxChange={handleCheckboxChange}
+            onSubmit={handleSubmit}
+          />
 
           <List />
         </div>
