@@ -1,10 +1,11 @@
 import { useCallback } from 'react'
 import { useRecoilState } from 'recoil'
+import { ReactElement } from 'react'
 
-import todoFilterState from '../recoil/atoms/todo-filter';
+import todoFilterState from '../recoil/atoms/todo-filter'
 import FilterEnum from '../types/filter.type'
 
-const ListFilter = () => {
+const ListFilter = (): ReactElement => {
   const [filter, setFilter] = useRecoilState(todoFilterState)
 
   const updateFilter = useCallback((value: FilterEnum) => {

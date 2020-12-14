@@ -14,4 +14,5 @@ jobs:
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}
       - run: npm install
       - run: npm run build
+      - run: npm run lint
       - run: npm run export

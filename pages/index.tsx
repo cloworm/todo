@@ -1,17 +1,15 @@
 import Head from 'next/head'
-import { useState } from 'react'
-import { useSetRecoilState } from 'recoil'
-import shortid from 'shortid'
+import { ReactElement, useState } from 'react'
 
 import Footer from '../components/Footer'
 import Toggle from '../components/Toggle'
 import Input from '../components/Input'
 import List from '../components/List'
 import Todo from '../types/todo.type'
-import todoState from '../recoil/atoms/todo'
+import useTodos from '../components/hooks/useTodos'
 
-export default function Home() {
-  const setTodos = useSetRecoilState(todoState)
+export default function Home(): ReactElement {
+  const { addTodo } = useTodos()
   const [todo, setTodo] = useState(new Todo({
     value: '',
     completed: false
@@ -32,13 +30,7 @@ export default function Home() {
   }
 
   const handleSubmit = () => {
-    setTodos((oldTodos) => [
-      {
-        ...todo,
-        id: shortid.generate()
-      },
-      ...oldTodos,
-    ])
+    addTodo(todo)
 
     setTodo(new Todo({
       value: '',
@@ -65,7 +57,7 @@ export default function Home() {
 
           <Input
             todo={todo}
-            rounded={true}
+            rounded
             onInputChange={handleInputChange}
             onCheckboxChange={handleCheckboxChange}
             onSubmit={handleSubmit}

@@ -1,4 +1,6 @@
-export default function Footer() {
+import { ReactElement } from 'react'
+// TODO add github link
+export default function Footer(): ReactElement {
   return (
     <>
       <footer className="w-full">
