@@ -32,11 +32,13 @@ export default function Home() {
   }
 
   const handleSubmit = () => {
-    todo.id = shortid.generate()
 
     setTodos((oldTodos) => [
+      {
+        ...todo,
+        id: shortid.generate()
+      },
       ...oldTodos,
-      todo
     ])
 
     setTodo(new Todo({
