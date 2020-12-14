@@ -8,7 +8,8 @@
     "start": "next start",
     "export": "next export",
     "netlify:dev": "netlify dev",
-    "lint": "eslint \"**/*.{js,jsx}\" --quiet"
+    "lint": "eslint \"**/*.{ts,tsx}\" --quiet",
+    "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix"
   },
   "dependencies": {
     "@tailwindcss/custom-forms": "^0.2.1",

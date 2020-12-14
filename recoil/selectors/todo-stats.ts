@@ -2,7 +2,12 @@ import { selector } from 'recoil'
 
 import todoState from '../atoms/todo'
 
-const todoStatsState = selector({
+interface TodoStats {
+  totalNum: number
+  totalUncompletedNum: number
+}
+
+const todoStatsState = selector<TodoStats>({
   key: 'todoStatsState',
   get: ({ get }) => {
     const todos = get(todoState)
