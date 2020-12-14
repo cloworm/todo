@@ -1,17 +1,28 @@
 import React, { useCallback } from 'react'
 
+import Todo from '../types/todo.type'
+
 interface Props {
-  completed?: boolean
-  rounded?: boolean
-  value?: string
+  todo: Todo
   onInputChange: (value: string) => void
   onCheckboxChange: (checked: boolean) => void
-  onDelete: () => void
+  onSubmit: () => void
+  onDelete?: () => void
+  rounded?: boolean
   readonly?: boolean
   showDelete?: boolean
 }
 
-const Input = ({ rounded, value = '', completed, onInputChange, onCheckboxChange, showDelete, onDelete, readonly }: Props) => {
+const Input = ({
+  todo,
+  onInputChange,
+  onCheckboxChange,
+  onSubmit,
+  onDelete,
+  rounded,
+  readonly,
+  showDelete,
+}: Props) => {
   const updateInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     onInputChange(e.target.value)
   }, [onInputChange])
@@ -23,8 +34,16 @@ const Input = ({ rounded, value = '', completed, onInputChange, onCheckboxChange
   const handleInputClick = useCallback(() => {
     if (!readonly) return
 
-    onCheckboxChange(!completed)
-  }, [onCheckboxChange, readonly, completed])
+    onCheckboxChange(!todo.completed)
+  }, [onCheckboxChange, readonly, todo])
+
+  const handleSubmit = useCallback((e) => {
+    if (e.code === 'Enter') {
+      onSubmit()
+    }
+  }, [onSubmit])
+
+  if (!todo) return (<div></div>)
 
   return (
     <div className="relative">
@@ -33,7 +52,7 @@ const Input = ({ rounded, value = '', completed, onInputChange, onCheckboxChange
           <input
             type="checkbox"
             className="form-checkbox border rounded-full focus:outline-none h-6 w-6 cursor-pointer"
-            checked={completed}
+            checked={todo.completed}
             onChange={updateChecked}
           />
           <img
@@ -55,13 +74,14 @@ const Input = ({ rounded, value = '', completed, onInputChange, onCheckboxChange
           disabled:text-light_darkGreyBlue
           cursor-pointer
           ${rounded ? 'rounded' : ''}
-          ${completed ? 'line-through text-light_lightGreyBlue' : 'text-light_darkGreyBlue'}
+          ${todo.completed ? 'line-through text-light_lightGreyBlue' : 'text-light_darkGreyBlue'}
         `}
         placeholder="Create a new todo.."
-        value={value}
+        value={todo.value}
         onChange={updateInput}
         onClick={handleInputClick}
         readOnly={readonly}
+        onKeyUp={handleSubmit}
       />
 
       <img

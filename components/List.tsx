@@ -59,8 +59,7 @@ const List = () => {
             <div key={todo.id}>
               <Input
                 key={`input-${todo.id}`}
-                value={todo.value}
-                completed={todo.completed}
+                todo={todo}
                 onInputChange={(value: string) => handleTodoChange(idx, value)}
                 onCheckboxChange={(completed: boolean) => handleCompletedChange(idx, completed)}
                 onDelete={() => handleDelete(idx)}
