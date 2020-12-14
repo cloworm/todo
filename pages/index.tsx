@@ -1,17 +1,15 @@
 import Head from 'next/head'
 import { ReactNode, useState } from 'react'
-import { useSetRecoilState } from 'recoil'
-import shortid from 'shortid'
 
 import Footer from '../components/Footer'
 import Toggle from '../components/Toggle'
 import Input from '../components/Input'
 import List from '../components/List'
 import Todo from '../types/todo.type'
-import todoState from '../recoil/atoms/todo'
+import useTodos from '../components/hooks/useTodos'
 
 export default function Home(): ReactNode {
-  const setTodos = useSetRecoilState(todoState)
+  const { addTodo } = useTodos()
   const [todo, setTodo] = useState(new Todo({
     value: '',
     completed: false
@@ -32,13 +30,7 @@ export default function Home(): ReactNode {
   }
 
   const handleSubmit = () => {
-    setTodos((oldTodos) => [
-      {
-        ...todo,
-        id: shortid.generate()
-      },
-      ...oldTodos,
-    ])
+    addTodo(todo)
 
     setTodo(new Todo({
       value: '',
