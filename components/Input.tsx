@@ -22,7 +22,7 @@ const Input = ({
   onDelete,
   rounded,
   readonly,
-}: Props): ReactElement => {
+}: Props): ReactElement|null => {
   const { theme } = useTheme()
   const isMounted = useIsMounted()
   const updateInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
