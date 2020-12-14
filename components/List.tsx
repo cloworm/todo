@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useRecoilValue, replaceItem, useRecoilState } from 'recoil'
+import React from 'react'
+import { useRecoilValue, useRecoilState } from 'recoil'
 
 import Input from './Input'
 import ListFilter from './ListFilter'

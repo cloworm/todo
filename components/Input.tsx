@@ -8,7 +8,7 @@ interface Props {
   todo: Todo
   onInputChange: (value: string) => void
   onCheckboxChange: (checked: boolean) => void
-  onSubmit: () => void
+  onSubmit?: () => void
   onDelete?: () => void
   rounded?: boolean
   readonly?: boolean
@@ -43,7 +43,10 @@ const Input = ({
 
   const handleSubmit = useCallback((e) => {
     e.preventDefault()
-    onSubmit()
+
+    if (onSubmit) {
+      onSubmit()
+    }
   }, [onSubmit])
 
   if (!isMounted || !todo) return null
