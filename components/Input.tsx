@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 
 interface Props {
   completed?: boolean
@@ -12,19 +12,19 @@ interface Props {
 }
 
 const Input = ({ rounded, value = '', completed, onInputChange, onCheckboxChange, showDelete, onDelete, readonly }: Props) => {
-  const updateInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const updateInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     onInputChange(e.target.value)
-  }
+  }, [onInputChange])
 
-  const updateChecked = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const updateChecked = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     onCheckboxChange(e.target.checked)
-  }
+  }, [onCheckboxChange])
 
-  const handleInputClick = () => {
+  const handleInputClick = useCallback(() => {
     if (!readonly) return
 
     onCheckboxChange(!completed)
-  }
+  }, [onCheckboxChange, readonly, completed])
 
   return (
     <div className="relative">
