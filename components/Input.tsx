@@ -2,6 +2,7 @@ import React, { useCallback } from 'react'
 import { useTheme } from 'next-themes'
 
 import Todo from '../types/todo.type'
+import useIsMounted from './hooks/useIsMounted'
 
 interface Props {
   todo: Todo
@@ -24,7 +25,8 @@ const Input = ({
   readonly,
   showDelete,
 }: Props) => {
-  const { theme, setTheme } = useTheme()
+  const { theme } = useTheme()
+  const isMounted = useIsMounted()
   const updateInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     onInputChange(e.target.value)
   }, [onInputChange])
@@ -44,7 +46,7 @@ const Input = ({
     onSubmit()
   }, [onSubmit])
 
-  if (!todo) return (<div></div>)
+  if (!isMounted || !todo) return null
 
   return (
     <div className="relative">
