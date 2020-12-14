@@ -1,8 +1,9 @@
 import { atom } from 'recoil'
+import FilterEnum from '../../types/filter.type'
 
-const todoFilterState = atom({
+const todoFilterState = atom<FilterEnum>({
   key: 'todoFilterState',
-  default: 'Show All'
+  default: FilterEnum.ShowAll
 })
 
 export default todoFilterState

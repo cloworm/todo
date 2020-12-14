@@ -2,6 +2,8 @@ import { selector } from 'recoil'
 import todoState from '../atoms/todo'
 import todoFilterState from '../atoms/todo-filter'
 
+import FilterEnum from '../../types/filter.type'
+
 const filteredTodoState = selector({
   key: 'filteredTodoState',
   get: ({ get }) => {
@@ -9,9 +11,9 @@ const filteredTodoState = selector({
     const list = get(todoState)
 
     switch(filter) {
-      case 'Show Active':
+      case FilterEnum.ShowActive:
         return list.filter((item) => !item.completed)
-      case 'Show Completed':
+      case FilterEnum.ShowCompleted:
         return list.filter((item) => item.completed)
       default:
         return list;

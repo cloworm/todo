@@ -12,7 +12,6 @@ interface Props {
   onDelete?: () => void
   rounded?: boolean
   readonly?: boolean
-  showDelete?: boolean
 }
 
 const Input = ({
@@ -23,7 +22,6 @@ const Input = ({
   onDelete,
   rounded,
   readonly,
-  showDelete,
 }: Props) => {
   const { theme } = useTheme()
   const isMounted = useIsMounted()
@@ -109,7 +107,7 @@ const Input = ({
 
       <img
         src="/images/icon-cross.svg"
-        className={`absolute top-3.5 right-5 cursor-pointer w-5 h-5 p-1 ${showDelete ? '' : 'invisible'}`}
+        className={`absolute top-3.5 right-5 cursor-pointer w-5 h-5 p-1 ${onDelete ? '' : 'invisible'}`}
         onClick={onDelete}
       />
     </div>

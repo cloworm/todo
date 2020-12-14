@@ -63,8 +63,7 @@ const List = () => {
                 onInputChange={(value: string) => handleTodoChange(idx, value)}
                 onCheckboxChange={(completed: boolean) => handleCompletedChange(idx, completed)}
                 onDelete={() => handleDelete(idx)}
-                readonly={true}
-                showDelete
+                readonly
               />
             </div>
           )
