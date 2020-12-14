@@ -65,7 +65,7 @@ export default function Home() {
 
           <Input
             todo={todo}
-            rounded={true}
+            rounded
             onInputChange={handleInputChange}
             onCheckboxChange={handleCheckboxChange}
             onSubmit={handleSubmit}
