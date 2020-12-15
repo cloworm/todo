@@ -1,7 +1,11 @@
 import React, { ReactElement } from 'react'
 import { ThemeProvider } from 'next-themes'
 
+import usePreloadBgImages from './hooks/usePreloadBgImages'
+
 const Layout = ({ children }: { children: ReactElement }): ReactElement => {
+  usePreloadBgImages()
+
   return (
     <ThemeProvider attribute="class">
       <div className={`
