@@ -13,7 +13,7 @@ const ListFilter = (): ReactElement => {
   }, [setFilter])
 
   return (
-    <div className="text-light_darkGreyBlue font-bold text-center">
+    <div className="text-lg sm:text-base text-light_darkGreyBlue font-bold text-center">
       <span className={`px-2 cursor-pointer ${filter === FilterEnum.ShowAll ? 'text-brightBlue' : ''}`} onClick={() => updateFilter(FilterEnum.ShowAll)}>
         All
       </span>

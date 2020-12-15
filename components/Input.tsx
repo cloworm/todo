@@ -107,7 +107,18 @@ const Input = ({
 
       <img
         src="/images/icon-cross.svg"
-        className={`absolute top-3.5 right-5 cursor-pointer w-5 h-5 p-1 ${onDelete ? '' : 'invisible'}`}
+        className={`
+          absolute
+          top-0
+          right-0
+          cursor-pointer
+          w-12
+          h-12
+          p-4.5
+          hover:filter-black
+          hover:animate-spin-fast
+          ${onDelete ? '' : 'invisible'}
+        `}
         onClick={onDelete}
       />
     </div>
