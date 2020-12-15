@@ -6,9 +6,6 @@ module.exports = {
   purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class', // 'media' or 'class'
   theme: {
-    fill: theme => ({
-      'gray': theme('colors.red.900')
-    }),
     fontFamily: {
       sans: ['Josefin Sans', 'sans-serif']
     },
