@@ -41,7 +41,7 @@ const List = (): ReactElement => {
             <ItemsLeft />
           </div>
 
-          <div className="invisible sm:visible">
+          <div className="hidden sm:flex">
             <ListFilter />
           </div>
 
@@ -52,7 +52,7 @@ const List = (): ReactElement => {
 
       </div>
 
-      <div className="rounded sm:invisible mt-4 bg-white dark:bg-dark_veryDarkDesaturatedBlue px-6 py-5">
+      <div className="rounded sm:hidden mt-4 bg-white dark:bg-dark_veryDarkDesaturatedBlue px-6 py-5">
         <ListFilter />
       </div>
     </div>

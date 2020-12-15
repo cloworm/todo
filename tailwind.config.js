@@ -41,7 +41,7 @@ module.exports = {
         '4.5': '1.125rem'
       },
       animation: {
-        'spin-fast': 'spin 0.5s ease-out 1'
+        'spin-fast': 'spin 0.6s ease-out 1'
       }
     },
     customForms: theme => ({
