@@ -9,7 +9,9 @@ module.exports = {
     extend: {
       backgroundImage: theme => ({
         'light-background': 'url(\'/images/bg-desktop-light.jpg\')',
-        'dark-background': 'url(\'/images/bg-desktop-dark.jpg\')'
+        'dark-background': 'url(\'/images/bg-desktop-dark.jpg\')',
+        'mobile-light-background': 'url(\'/images/bg-mobile-light.jpg\')',
+        'mobile-dark-background': 'url(\'/images/bg-mobile-dark.jpg\')'
       }),
       letterSpacing: {
         widest: '.4em'

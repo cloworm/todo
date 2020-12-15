@@ -17,34 +17,43 @@ const List = (): ReactElement => {
   } = useTodos()
 
   return (
-    <div className="divide-y divide-light_veryLightGreyBlue rounded mt-8 bg-white dark:bg-dark_veryDarkDesaturatedBlue">
-      {
-        todos.map((todo, idx) => {
-          return (
-            <div key={todo.id}>
-              <Input
-                key={`input-${todo.id}`}
-                todo={todo}
-                onInputChange={(value: string) => updateTodoValue(idx, value)}
-                onCheckboxChange={(completed: boolean) => updateTodoCompleted(idx, completed)}
-                onDelete={() => deleteTodo(idx)}
-                readonly
-              />
-            </div>
-          )
-        })
-      }
+    <div>
+      <div className="divide-y divide-light_veryLightGreyBlue rounded mt-5 bg-white dark:bg-dark_veryDarkDesaturatedBlue">
+        {
+          todos.map((todo, idx) => {
+            return (
+              <div key={todo.id}>
+                <Input
+                  key={`input-${todo.id}`}
+                  todo={todo}
+                  onInputChange={(value: string) => updateTodoValue(idx, value)}
+                  onCheckboxChange={(completed: boolean) => updateTodoCompleted(idx, completed)}
+                  onDelete={() => deleteTodo(idx)}
+                  readonly
+                />
+              </div>
+            )
+          })
+        }
 
-      <div className="text-sm px-6 py-4 flex w-full">
-        <div className="flex flex-1">
-          <ItemsLeft />
+        <div className="text-sm px-6 py-4 flex w-full">
+          <div className="flex flex-1">
+            <ItemsLeft />
+          </div>
+
+          <div className="invisible lg:visible">
+            <ListFilter />
+          </div>
+
+          <div className="flex justify-end flex-1 text-light_lightGreyBlue cursor-pointer">
+            <div onClick={clearCompletedTodos}>Clear Completed</div>
+          </div>
         </div>
 
+      </div>
+
+      <div className="rounded lg:invisible mt-4 bg-white dark:bg-dark_veryDarkDesaturatedBlue px-6 py-5">
         <ListFilter />
-
-        <div className="flex justify-end flex-1 text-light_lightGreyBlue cursor-pointer">
-          <div onClick={clearCompletedTodos}>Clear Completed</div>
-        </div>
       </div>
     </div>
   )

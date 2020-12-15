@@ -31,6 +31,8 @@ module.exports = {
       'error',
       'unix'
     ],
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": ["error"]
     'quotes': [
       'error',
       'single'
