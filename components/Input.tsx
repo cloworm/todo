@@ -116,6 +116,7 @@ const Input = ({
           h-12
           p-4.5
           hover:filter-black
+          dark:hover:filter-white
           hover:animate-spin-fast
           ${onDelete ? '' : 'invisible'}
         `}

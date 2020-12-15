@@ -84,9 +84,12 @@ module.exports = {
         '.filter-black': {
           filter: 'brightness(0%)',
         },
+        '.filter-white': {
+          filter: 'brightness(0%) invert(1)',
+        },
       }
 
-      addUtilities(newUtilities, ['responsive', 'hover'])
+      addUtilities(newUtilities, ['responsive', 'hover', 'dark'])
     })
   ],
 }
