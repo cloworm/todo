@@ -1,8 +1,14 @@
 /* eslint-env node */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
   purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class', // 'media' or 'class'
   theme: {
+    fill: theme => ({
+      'gray': theme('colors.red.900')
+    }),
     fontFamily: {
       sans: ['Josefin Sans', 'sans-serif']
     },
@@ -31,6 +37,12 @@ module.exports = {
         dark_veryDarkGreyBlue2: 'hsl(237, 14%, 26%)',
         brightBlue: 'hsl(220, 98%, 61%)'
       },
+      padding: {
+        '4.5': '1.125rem'
+      },
+      animation: {
+        'spin-fast': 'spin 0.5s ease-out 1'
+      }
     },
     customForms: theme => ({
       default: {
@@ -65,9 +77,19 @@ module.exports = {
   variants: {
     extend: {
       backgroundImage: ['dark'],
+      animation: ['hover']
     },
   },
   plugins: [
-    require('@tailwindcss/custom-forms')
+    require('@tailwindcss/custom-forms'),
+    plugin(function({ addUtilities }) {
+      const newUtilities = {
+        '.filter-black': {
+          filter: 'brightness(0%)',
+        },
+      }
+
+      addUtilities(newUtilities, ['responsive', 'hover'])
+    })
   ],
 }

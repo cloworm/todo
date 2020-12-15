@@ -10,8 +10,8 @@ const Layout = ({ children }: { children: ReactElement }): ReactElement => {
         min-h-screen
         bg-mobile-light-background
         dark:bg-mobile-dark-background
-        md:bg-light-background
-        md:dark:bg-dark-background
+        sm:bg-light-background
+        sm:dark:bg-dark-background
         bg-no-repeat
         bg-contain
         bg-center-top

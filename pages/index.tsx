@@ -48,7 +48,7 @@ export default function Home(): ReactElement {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
-      <main className="flex-1 lg:w-1/2 w-full px-7">
+      <main className="flex-1 sm:w-3/4 md:w-1/2 w-full px-7">
         <div>
           <p className="text-3xl text-white font-bold tracking-widest pt-10 pb-6">
             TODO
