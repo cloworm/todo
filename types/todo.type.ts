@@ -1,5 +1,5 @@
 export default class Todo {
-  id?: string|null
+  id?: string
   value: string
   completed: boolean
 

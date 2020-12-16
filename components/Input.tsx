@@ -22,7 +22,7 @@ const Input = ({
   onDelete,
   rounded,
   readonly,
-}: Props): ReactElement|null => {
+}: Props): ReactElement => {
   const { theme } = useTheme()
   const isMounted = useIsMounted()
   const updateInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,7 +47,7 @@ const Input = ({
     }
   }, [onSubmit])
 
-  if (!isMounted || !todo) return null
+  if (!isMounted || !todo) return <div></div>
 
   return (
     <div className="relative">
@@ -82,6 +82,8 @@ const Input = ({
         </div>
       </div>
 
+      {/* <div>{ todo.value }</div> */}
+
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -96,6 +98,7 @@ const Input = ({
             cursor-pointer
             ${rounded ? 'rounded' : ''}
             ${todo.completed ? 'line-through text-light_lightGreyBlue' : 'text-light_darkGreyBlue'}
+            ${readonly ? 'pointer-events-none' : ''}
           `}
           placeholder="Create a new todo.."
           value={todo.value}
