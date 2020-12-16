@@ -39,6 +39,7 @@ const SortableItem: any = sortableElement(({
       onInputChange={(value: string) => updateTodoValue(idx, value)}
       onCheckboxChange={(completed: boolean) => updateTodoCompleted(idx, completed)}
       onDelete={() => deleteTodo(idx)}
+      rounded={idx === 0}
       readonly
     />
   )
