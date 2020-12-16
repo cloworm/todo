@@ -46,7 +46,7 @@ const SortableItem: any = sortableElement(({
 })
 
 const SortableContainer: any = sortableContainer(({ children }: { children: any}) => {
-  return <div>{children}</div>
+  return <div className="cursor-pointer">{children}</div>
 })
 
 const List = (): ReactElement|null => {
@@ -56,14 +56,12 @@ const List = (): ReactElement|null => {
     deleteTodo,
     updateTodoCompleted,
     updateTodoValue,
+    reorderTodo
   } = useTodos()
   const isMounted = useIsMounted()
 
   const onSortEnd = ({ oldIndex, newIndex }: { oldIndex: number, newIndex: number}) => {
-    // this.setState(({items}) => ({
-    // items: arrayMove(items, oldIndex, newIndex),
-    // }));
-    console.log('done sorting', oldIndex, newIndex)
+    reorderTodo(oldIndex, newIndex)
   }
 
   if (!isMounted) return null

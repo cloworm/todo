@@ -2,6 +2,7 @@
 import { useRecoilValue, useRecoilState } from 'recoil'
 import { useCallback } from 'react'
 import shortid from 'shortid'
+import arrayMove from 'array-move'
 
 import filteredTodoState from '../../recoil/selectors/todo-filter'
 import todoState from '../../recoil/atoms/todo'
@@ -14,6 +15,7 @@ interface UseTodos {
   deleteTodo: (idx: number) => void
   updateTodoCompleted: (idx: number, completed: boolean) => void
   updateTodoValue: (idx: number, value: string) => void
+  reorderTodo: (oldIdx: number, newIdx: number) => void
 }
 
 const useTodos = (): UseTodos => {
@@ -62,12 +64,19 @@ const useTodos = (): UseTodos => {
     setTodos(newList)
   }, [setTodos, todoList])
 
+  const reorderTodo = useCallback((oldIdx: number, newIdx: number): void => {
+    const newList = arrayMove(todoList, oldIdx, newIdx)
+
+    setTodos(newList)
+  }, [setTodos, todoList])
+
   return {
     addTodo,
     clearCompletedTodos,
     deleteTodo,
     updateTodoCompleted,
     updateTodoValue,
+    reorderTodo
   }
 }
 

@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@tailwindcss/custom-forms": "^0.2.1",
+    "array-move": "^3.0.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "next": "10.0.1",
     "next-themes": "0.0.10",
