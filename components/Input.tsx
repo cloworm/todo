@@ -51,7 +51,7 @@ const Input = ({
 
   return (
     <div className="relative group">
-      <div className="absolute top-2.5 left-5">
+      <div className="absolute top-3 sm:top-4 left-5">
         <div className="relative">
           <input
             type="checkbox"
@@ -89,17 +89,20 @@ const Input = ({
         <input
           type="text"
           className={`
+            text-sm
+            sm:text-base
             overflow-ellipsis
             w-full
             focus:outline-none
-            py-3
+            py-4
+            sm:py-4.5
             pr-8
-            pl-16
+            pl-14
+            sm:pl-16
             dark:bg-dark_veryDarkDesaturatedBlue
             cursor-pointer
             ${rounded ? 'rounded' : ''}
             ${todo.completed ? 'line-through text-light_lightGreyBlue dark:text-dark_darkGreyBlue' : 'text-light_veryDarkGreyBlue dark:text-dark_lightGreyBlue'}
-            ${readonly ? 'pointer-events-none' : ''}
           `}
           placeholder="Create a new todo.."
           value={todo.value}
@@ -111,15 +114,14 @@ const Input = ({
         />
       </form>
 
-      <a id="delete" onClick={onDelete}>
+      <a id="delete" className="absolute top-0 right-0" onClick={onDelete}>
         <img
           src="/images/icon-cross.svg"
           className={`
-            rounded
-            absolute
-            top-0
-            right-0
             cursor-pointer
+            sm:w-14.5
+            sm:h-14.5
+            sm:p-5
             w-12
             h-12
             p-4.5

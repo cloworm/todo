@@ -41,16 +41,16 @@ export default function Home(): ReactElement {
   return (
     <div className="min-h-screen flex flex-col items-center">
       <Head>
-        <title>ToDo</title>
+        <title>Todo</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
-      <main className="flex-1 sm:w-3/4 md:w-1/2 w-full px-7">
+      <div className="flex-1 sm:w-2/5 w-full px-7">
         <div>
-          <p className="text-3xl text-white font-bold tracking-widest pt-10 pb-6">
+          <p className="text-3xl sm:text-4xl text-white font-bold tracking-widest pt-10 sm:pt-20 pb-6 sm:pb-10">
             TODO
             <Toggle />
           </p>
@@ -65,7 +65,7 @@ export default function Home(): ReactElement {
 
           <List />
         </div>
-      </main>
+      </div>
 
       <Footer />
     </div>
