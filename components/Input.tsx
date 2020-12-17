@@ -50,7 +50,7 @@ const Input = ({
   if (!isMounted || !todo) return <div></div>
 
   return (
-    <div className="relative">
+    <div className="relative group">
       <div className="absolute top-2.5 left-5">
         <div className="relative">
           <input
@@ -110,6 +110,7 @@ const Input = ({
         <img
           src="/images/icon-cross.svg"
           className={`
+            bg-white
             absolute
             top-0
             right-0
@@ -120,7 +121,9 @@ const Input = ({
             hover:filter-black
             dark:hover:filter-white
             hover:animate-spin-fast
-            ${onDelete ? '' : 'invisible'}
+            visible
+            sm:invisible
+            ${onDelete ? 'group-hover:visible' : 'invisible'}
           `}
         />
       </a>

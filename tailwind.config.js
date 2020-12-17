@@ -75,7 +75,7 @@ module.exports = {
     extend: {
       backgroundImage: ['dark'],
       animation: ['hover'],
-
+      visibility: ['group-hover']
     },
   },
   plugins: [

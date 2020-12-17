@@ -46,7 +46,7 @@ const SortableItem: any = sortableElement(({
 })
 
 const SortableContainer: any = sortableContainer(({ children }: { children: any}) => {
-  return <div className="cursor-pointer">{children}</div>
+  return <div className="cursor-pointer divide-y divide-light_veryLightGreyBlue dark:divide-dark_veryDarkGreyBlue">{children}</div>
 })
 
 const List = (): ReactElement|null => {
@@ -74,7 +74,7 @@ const List = (): ReactElement|null => {
   return (
     <div>
       <div className="shadow-none sm:shadow-lg">
-        <div className="divide-y shadow-lg sm:shadow-none divide-light_veryLightGreyBlue rounded mt-5 bg-white dark:bg-dark_veryDarkDesaturatedBlue">
+        <div className="shadow-lg divide-y divide-light_veryLightGreyBlue dark:divide-dark_veryDarkGreyBlue sm:shadow-none rounded mt-5 bg-white dark:bg-dark_veryDarkDesaturatedBlue">
 
           <SortableContainer onSortEnd={onSortEnd} shouldCancelStart={shouldCancelStart}>
             {todos.map((todo, idx) => {
