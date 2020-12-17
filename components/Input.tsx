@@ -22,7 +22,7 @@ const Input = ({
   onDelete,
   rounded,
   readonly,
-}: Props): ReactElement|null => {
+}: Props): ReactElement => {
   const { theme } = useTheme()
   const isMounted = useIsMounted()
   const updateInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,16 +47,17 @@ const Input = ({
     }
   }, [onSubmit])
 
-  if (!isMounted || !todo) return null
+  if (!isMounted || !todo) return <div></div>
 
   return (
-    <div className="relative">
+    <div className="relative group">
       <div className="absolute top-2.5 left-5">
         <div className="relative">
           <input
             type="checkbox"
             className={`
               form-checkbox
+              dark:border-dark_veryDarkGreyBlue
               dark:bg-dark_veryDarkDesaturatedBlue
               border
               rounded-full
@@ -86,42 +87,49 @@ const Input = ({
         <input
           type="text"
           className={`
+            overflow-ellipsis
             w-full
             focus:outline-none
             py-3
-            pr-4
+            pr-8
             pl-16
             dark:bg-dark_veryDarkDesaturatedBlue
-            disabled:text-light_darkGreyBlue
             cursor-pointer
             ${rounded ? 'rounded' : ''}
-            ${todo.completed ? 'line-through text-light_lightGreyBlue' : 'text-light_darkGreyBlue'}
+            ${todo.completed ? 'line-through text-light_lightGreyBlue dark:text-dark_darkGreyBlue' : 'text-light_veryDarkGreyBlue dark:text-dark_lightGreyBlue'}
+            ${readonly ? 'pointer-events-none' : ''}
           `}
           placeholder="Create a new todo.."
           value={todo.value}
           onChange={updateInput}
           onClick={handleInputClick}
           readOnly={readonly}
+          maxLength={125}
         />
       </form>
 
-      <img
-        src="/images/icon-cross.svg"
-        className={`
-          absolute
-          top-0
-          right-0
-          cursor-pointer
-          w-12
-          h-12
-          p-4.5
-          hover:filter-black
-          dark:hover:filter-white
-          hover:animate-spin-fast
-          ${onDelete ? '' : 'invisible'}
-        `}
-        onClick={onDelete}
-      />
+      <a onClick={onDelete}>
+        <img
+          src="/images/icon-cross.svg"
+          className={`
+            rounded
+
+            absolute
+            top-0
+            right-0
+            cursor-pointer
+            w-12
+            h-12
+            p-4.5
+            hover:filter-black
+            dark:hover:filter-white
+            hover:animate-spin-fast
+            visible
+            sm:invisible
+            ${onDelete ? 'group-hover:visible' : 'invisible'}
+          `}
+        />
+      </a>
     </div>
   )
 }

@@ -14,13 +14,13 @@ const ListFilter = (): ReactElement => {
 
   return (
     <div className="text-lg sm:text-base text-light_darkGreyBlue font-bold text-center">
-      <span className={`px-2 cursor-pointer ${filter === FilterEnum.ShowAll ? 'text-brightBlue' : ''}`} onClick={() => updateFilter(FilterEnum.ShowAll)}>
+      <span className={`px-2 hover:text-light_veryDarkGreyBlue dark:hover:text-dark_lightGreyBlue cursor-pointer ${filter === FilterEnum.ShowAll ? 'text-brightBlue' : ''}`} onClick={() => updateFilter(FilterEnum.ShowAll)}>
         All
       </span>
-      <span className={`px-2 cursor-pointer ${filter === FilterEnum.ShowActive ? 'text-brightBlue' : ''}`} onClick={() => updateFilter(FilterEnum.ShowActive)}>
+      <span className={`px-2 hover:text-light_veryDarkGreyBlue dark:hover:text-dark_lightGreyBlue cursor-pointer ${filter === FilterEnum.ShowActive ? 'text-brightBlue' : ''}`} onClick={() => updateFilter(FilterEnum.ShowActive)}>
         Active
       </span>
-      <span className={`px-2 cursor-pointer ${filter === FilterEnum.ShowCompleted ? 'text-brightBlue' : ''}`} onClick={() => updateFilter(FilterEnum.ShowCompleted)}>
+      <span className={`px-2 hover:text-light_veryDarkGreyBlue dark:hover:text-dark_lightGreyBlue cursor-pointer ${filter === FilterEnum.ShowCompleted ? 'text-brightBlue' : ''}`} onClick={() => updateFilter(FilterEnum.ShowCompleted)}>
         Completed
       </span>
     </div>
