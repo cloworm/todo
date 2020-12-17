@@ -55,6 +55,7 @@ const Input = ({
         <div className="relative">
           <input
             type="checkbox"
+            aria-label="Complete Todo"
             className={`
               form-checkbox
               dark:border-dark_veryDarkGreyBlue
@@ -79,6 +80,7 @@ const Input = ({
               ${todo.completed ? '' : 'invisible' }
             `}
             src="/images/icon-check.svg"
+            alt="Checkbox image for checkbox input"
           />
         </div>
       </div>
@@ -105,15 +107,15 @@ const Input = ({
           onClick={handleInputClick}
           readOnly={readonly}
           maxLength={125}
+          aria-label="Todo"
         />
       </form>
 
-      <a onClick={onDelete}>
+      <a id="delete" onClick={onDelete}>
         <img
           src="/images/icon-cross.svg"
           className={`
             rounded
-
             absolute
             top-0
             right-0
@@ -128,6 +130,7 @@ const Input = ({
             sm:invisible
             ${onDelete ? 'group-hover:visible' : 'invisible'}
           `}
+          alt="Delete Todo"
         />
       </a>
     </div>

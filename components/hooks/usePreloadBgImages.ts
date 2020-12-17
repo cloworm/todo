@@ -10,7 +10,9 @@ const usePreloadBgImages = (): void => {
       '/images/bg-desktop-dark.jpg',
       '/images/bg-desktop-light.jpg',
       '/images/bg-mobile-dark.jpg',
-      '/images/bg-mobile-light.jpg'
+      '/images/bg-mobile-light.jpg',
+      '/images/icon-moon.svg',
+      '/images/icon-sun.svg'
     ].forEach((image) => {
       if (!isMounted) return
 
