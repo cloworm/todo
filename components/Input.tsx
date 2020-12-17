@@ -110,7 +110,9 @@ const Input = ({
         <img
           src="/images/icon-cross.svg"
           className={`
+            rounded
             bg-white
+            dark:bg-dark_veryDarkDesaturatedBlue
             absolute
             top-0
             right-0
