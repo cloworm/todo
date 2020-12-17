@@ -66,7 +66,6 @@ const List = (): ReactElement|null => {
 
   const shouldCancelStart = (e: any) => {
     return e.target.tagName?.toLowerCase() === 'img'
-      || e.target.tagName?.toLowerCase() === 'input'
   }
 
   if (!isMounted) return null
@@ -76,7 +75,7 @@ const List = (): ReactElement|null => {
       <div className="shadow-none sm:shadow-lg">
         <div className="shadow-lg divide-y divide-light_veryLightGreyBlue dark:divide-dark_veryDarkGreyBlue sm:shadow-none bg-white dark:bg-dark_veryDarkDesaturatedBlue">
 
-          <SortableContainer onSortEnd={onSortEnd} shouldCancelStart={shouldCancelStart}>
+          <SortableContainer onSortEnd={onSortEnd} shouldCancelStart={shouldCancelStart} distance={10}>
             {todos.map((todo, idx) => {
               const value = {
                 todo,

@@ -103,7 +103,6 @@ const Input = ({
             cursor-pointer
             ${rounded ? 'rounded' : ''}
             ${todo.completed ? 'line-through text-light_lightGreyBlue dark:text-dark_darkGreyBlue' : 'text-light_veryDarkGreyBlue dark:text-dark_lightGreyBlue'}
-            ${readonly ? 'pointer-events-none' : ''}
           `}
           placeholder="Create a new todo.."
           value={todo.value}
