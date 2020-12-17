@@ -27,18 +27,18 @@ Todo app frontend challenge from [Frontend Mentor](https://www.frontendmentor.io
 
   1. Clone repo
 
-```
-git clone https://github.com/cloworm/todo
-```
+      ```
+      git clone https://github.com/cloworm/todo
+      ```
 
 2. Install Dependencies
 
-```
-npm i
-```
+      ```
+      npm i
+      ```
 
 3. Run the dev server
 
-```
-npm run dev
-```
+      ```
+      npm run dev
+      ```
