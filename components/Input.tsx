@@ -82,8 +82,6 @@ const Input = ({
         </div>
       </div>
 
-      {/* <div>{ todo.value }</div> */}
-
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -104,26 +102,28 @@ const Input = ({
           onChange={updateInput}
           onClick={handleInputClick}
           readOnly={readonly}
+          maxLength={125}
         />
       </form>
 
-      <img
-        src="/images/icon-cross.svg"
-        className={`
-          absolute
-          top-0
-          right-0
-          cursor-pointer
-          w-12
-          h-12
-          p-4.5
-          hover:filter-black
-          dark:hover:filter-white
-          hover:animate-spin-fast
-          ${onDelete ? '' : 'invisible'}
-        `}
-        onClick={onDelete}
-      />
+      <a onClick={onDelete}>
+        <img
+          src="/images/icon-cross.svg"
+          className={`
+            absolute
+            top-0
+            right-0
+            cursor-pointer
+            w-12
+            h-12
+            p-4.5
+            hover:filter-black
+            dark:hover:filter-white
+            hover:animate-spin-fast
+            ${onDelete ? '' : 'invisible'}
+          `}
+        />
+      </a>
     </div>
   )
 }

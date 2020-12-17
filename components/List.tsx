@@ -64,46 +64,53 @@ const List = (): ReactElement|null => {
     reorderTodo(oldIndex, newIndex)
   }
 
+  const shouldCancelStart = (e: any) => {
+    return e.target.tagName?.toLowerCase() === 'img'
+      || e.target.tagName?.toLowerCase() === 'input'
+  }
+
   if (!isMounted) return null
 
   return (
     <div>
-      <div className="divide-y divide-light_veryLightGreyBlue rounded mt-5 bg-white dark:bg-dark_veryDarkDesaturatedBlue">
+      <div className="shadow-none sm:shadow-lg">
+        <div className="divide-y shadow-lg sm:shadow-none divide-light_veryLightGreyBlue rounded mt-5 bg-white dark:bg-dark_veryDarkDesaturatedBlue">
 
-        <SortableContainer onSortEnd={onSortEnd}>
-          {todos.map((todo, idx) => {
-            const value = {
-              todo,
-              idx,
-              updateTodoValue,
-              updateTodoCompleted,
-              deleteTodo
-            }
-            return <SortableItem key={`item-${todo?.id}`} index={idx} value={value} />
-          })}
-        </SortableContainer>
+          <SortableContainer onSortEnd={onSortEnd} shouldCancelStart={shouldCancelStart}>
+            {todos.map((todo, idx) => {
+              const value = {
+                todo,
+                idx,
+                updateTodoValue,
+                updateTodoCompleted,
+                deleteTodo
+              }
+              return <SortableItem key={`item-${todo?.id}`} index={idx} value={value} />
+            })}
+          </SortableContainer>
 
-        <div className="text-sm px-6 py-4 flex items-center w-full">
-          <div className="flex flex-1">
-            <ItemsLeft />
+          <div className="text-sm px-6 py-4 flex items-center w-full">
+            <div className="flex flex-1">
+              <ItemsLeft />
+            </div>
+
+            <div className="hidden sm:flex">
+              <ListFilter />
+            </div>
+
+            <div className="flex justify-end flex-1 text-light_darkGreyBlue hover:text-light_veryDarkGreyBlue dark:hover:text-white cursor-pointer">
+              <div onClick={clearCompletedTodos}>Clear Completed</div>
+            </div>
           </div>
 
-          <div className="hidden sm:flex">
-            <ListFilter />
-          </div>
-
-          <div className="flex justify-end flex-1 text-light_darkGreyBlue hover:text-light_veryDarkGreyBlue dark:hover:text-white cursor-pointer">
-            <div onClick={clearCompletedTodos}>Clear Completed</div>
-          </div>
         </div>
 
+        <div className="rounded sm:hidden mt-4 bg-white dark:bg-dark_veryDarkDesaturatedBlue px-6 py-5">
+          <ListFilter />
+        </div>
       </div>
 
-      <div className="rounded sm:hidden mt-4 bg-white dark:bg-dark_veryDarkDesaturatedBlue px-6 py-5">
-        <ListFilter />
-      </div>
-
-      <div className="mt-10 text-center dark:text-dark_veryDarkGreyBlue">
+      <div className="mt-10 text-sm text-center text-light_darkGreyBlue dark:text-dark_veryDarkGreyBlue">
         Drag and drop to reorder list
       </div>
     </div>
