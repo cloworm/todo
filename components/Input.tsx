@@ -57,6 +57,7 @@ const Input = ({
             type="checkbox"
             className={`
               form-checkbox
+              dark:border-dark_veryDarkGreyBlue
               dark:bg-dark_veryDarkDesaturatedBlue
               border
               rounded-full
