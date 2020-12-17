@@ -87,10 +87,11 @@ const Input = ({
         <input
           type="text"
           className={`
+            overflow-ellipsis
             w-full
             focus:outline-none
             py-3
-            pr-4
+            pr-8
             pl-16
             dark:bg-dark_veryDarkDesaturatedBlue
             cursor-pointer
@@ -112,8 +113,7 @@ const Input = ({
           src="/images/icon-cross.svg"
           className={`
             rounded
-            bg-white
-            dark:bg-dark_veryDarkDesaturatedBlue
+
             absolute
             top-0
             right-0
