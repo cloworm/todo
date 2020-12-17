@@ -94,10 +94,9 @@ const Input = ({
             pr-4
             pl-16
             dark:bg-dark_veryDarkDesaturatedBlue
-            disabled:text-light_darkGreyBlue
             cursor-pointer
             ${rounded ? 'rounded' : ''}
-            ${todo.completed ? 'line-through text-light_lightGreyBlue' : 'text-light_darkGreyBlue'}
+            ${todo.completed ? 'line-through text-light_lightGreyBlue dark:text-dark_darkGreyBlue' : 'text-light_veryDarkGreyBlue dark:text-dark_lightGreyBlue'}
             ${readonly ? 'pointer-events-none' : ''}
           `}
           placeholder="Create a new todo.."

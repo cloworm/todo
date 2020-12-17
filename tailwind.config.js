@@ -74,7 +74,8 @@ module.exports = {
   variants: {
     extend: {
       backgroundImage: ['dark'],
-      animation: ['hover']
+      animation: ['hover'],
+
     },
   },
   plugins: [

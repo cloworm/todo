@@ -83,7 +83,7 @@ const List = (): ReactElement|null => {
           })}
         </SortableContainer>
 
-        <div className="text-sm px-6 py-4 flex w-full">
+        <div className="text-sm px-6 py-4 flex items-center w-full">
           <div className="flex flex-1">
             <ItemsLeft />
           </div>
@@ -92,7 +92,7 @@ const List = (): ReactElement|null => {
             <ListFilter />
           </div>
 
-          <div className="flex justify-end flex-1 text-light_lightGreyBlue cursor-pointer">
+          <div className="flex justify-end flex-1 text-light_darkGreyBlue hover:text-light_veryDarkGreyBlue dark:hover:text-white cursor-pointer">
             <div onClick={clearCompletedTodos}>Clear Completed</div>
           </div>
         </div>
@@ -102,25 +102,12 @@ const List = (): ReactElement|null => {
       <div className="rounded sm:hidden mt-4 bg-white dark:bg-dark_veryDarkDesaturatedBlue px-6 py-5">
         <ListFilter />
       </div>
+
+      <div className="mt-10 text-center dark:text-dark_veryDarkGreyBlue">
+        Drag and drop to reorder list
+      </div>
     </div>
   )
 }
 
 export default List
-
-/* {
-          todos.map((todo, idx) => {
-            return (
-              <div key={todo.id}>
-                <Input
-                  key={`input-${todo.id}`}
-                  todo={todo}
-                  onInputChange={(value: string) => updateTodoValue(idx, value)}
-                  onCheckboxChange={(completed: boolean) => updateTodoCompleted(idx, completed)}
-                  onDelete={() => deleteTodo(idx)}
-                  readonly
-                />
-              </div>
-            )
-          })
-        } */
