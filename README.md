@@ -1,4 +1,4 @@
-# Todo
+# Todo App
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/575a1fe3-7e5f-4b78-beed-aa0064440b47/deploy-status)](https://app.netlify.com/sites/cloworm-todo/deploys)
 
