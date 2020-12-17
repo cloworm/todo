@@ -72,9 +72,9 @@ const List = (): ReactElement|null => {
   if (!isMounted) return null
 
   return (
-    <div>
+    <div className="mt-5 sm:mt-7">
       <div className="shadow-none sm:shadow-lg">
-        <div className="shadow-lg divide-y divide-light_veryLightGreyBlue dark:divide-dark_veryDarkGreyBlue sm:shadow-none rounded mt-5 bg-white dark:bg-dark_veryDarkDesaturatedBlue">
+        <div className="shadow-lg divide-y divide-light_veryLightGreyBlue dark:divide-dark_veryDarkGreyBlue sm:shadow-none bg-white dark:bg-dark_veryDarkDesaturatedBlue">
 
           <SortableContainer onSortEnd={onSortEnd} shouldCancelStart={shouldCancelStart}>
             {todos.map((todo, idx) => {
@@ -105,7 +105,7 @@ const List = (): ReactElement|null => {
 
         </div>
 
-        <div className="rounded sm:hidden mt-4 bg-white dark:bg-dark_veryDarkDesaturatedBlue px-6 py-5">
+        <div className="rounded sm:hidden mt-4 bg-white dark:bg-dark_veryDarkDesaturatedBlue px-6 py-3.5">
           <ListFilter />
         </div>
       </div>

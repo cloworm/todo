@@ -35,7 +35,13 @@ module.exports = {
         brightBlue: 'hsl(220, 98%, 61%)'
       },
       padding: {
-        '4.5': '1.125rem'
+        '4.5': '1.125rem',
+      },
+      height: {
+        '14.5': '3.625rem'
+      },
+      width: {
+        '14.5': '3.625rem'
       },
       animation: {
         'spin-fast': 'spin 0.6s ease-out 1'

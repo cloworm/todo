@@ -50,7 +50,7 @@ export default function Home(): ReactElement {
 
       <div className="flex-1 sm:w-2/5 w-full px-7">
         <div>
-          <p className="text-3xl text-white font-bold tracking-widest pt-10 pb-6">
+          <p className="text-3xl sm:text-4xl text-white font-bold tracking-widest pt-10 sm:pt-20 pb-6 sm:pb-10">
             TODO
             <Toggle />
           </p>
