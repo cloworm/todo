@@ -1,38 +1,44 @@
-# Next + Netlify Starter
+# Todo
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ed50f56e-4fc2-4c98-8b66-1e5074c6f3d3/deploy-status)](https://app.netlify.com/sites/next-starter/deploys)
+Next.js JAMstack hosted on Netlify
 
-This is a [Next.js](https://nextjs.org/) v10.0.1 project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and set up to be instantly deployed to [Netlify](https://url.netlify.com/Bk4UicocL)!
+Link to [demo](https://cloworm-todo.netlify.app/)
 
-This project is a very minimal starter that includes 2 sample components, a global stylesheet, a `netlify.toml` for deployment, and a `jsconfig.json` for setting up absolute imports and aliases.
+Todo app frontend challenge from [Frontend Mentor](https://www.frontendmentor.io/)
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/cassidoo/next-netlify-starter&utm_source=github&utm_medium=nextstarter-cs&utm_campaign=devex)
+## Features
+* View the optimal layout for the app depending on their device's screen size
+* See hover states for all interactive elements on the page
+* Add new todos to the list
+* Mark todos as complete
+* Delete todos from the list
+* Filter by all/active/complete todos
+* Clear all completed todos
+* Toggle light and dark mode
+* Bonus: Drag and drop to reorder items on the list
 
-(If you click this button, it will create a new repo for you that looks exactly like this one, and sets that repo up immediately for deployment on Netlify)
+## Technology Used
 
-## Getting Started
+* [Next.js](https://nextjs.org/)
+* [tailwindcss](tailwindcss)
+* Hosted on [Netlify](http://netlify.com/)
 
-First, run the development server:
+## Development
 
-```bash
-npm run dev
-# or
-yarn dev
+  1. Clone repo
+
+```
+git clone https://github.com/cloworm/todo
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install Dependencies
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+npm i
+```
 
-### Installation options
+3. Run the dev server
 
-**Option one:** One-click deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/cassidoo/next-netlify-starter&utm_source=github&utm_medium=nextstarter-cs&utm_campaign=devex)
-
-**Option two:** Manual clone
-
-1. Clone this repo: `git clone https://github.com/cassidoo/next-netlify-starter.git`
-2. Navigate to the directory and run `npm run dev`
-3. Make your changes
-4. Connect to [Netlify](https://url.netlify.com/Bk4UicocL) manually (the `netlify.toml` file is the one you'll need to make sure stays intact to make sure the export is done and pointed to the right stuff)
+```
+npm run dev
+```
