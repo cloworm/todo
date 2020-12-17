@@ -23,7 +23,7 @@ Todo app frontend challenge from [Frontend Mentor](https://www.frontendmentor.io
 * Filter by all/active/complete todos
 * Clear all completed todos
 * Toggle light and dark mode
-* Bonus: Drag and drop to reorder items on the list
+* Drag and drop to reorder items on the list
 
 ## Technology Used
 
