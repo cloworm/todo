@@ -23,7 +23,10 @@ const Toggle = (): ReactElement|null => {
 
   return (
     <a className="float-right cursor-pointer" onClick={switchTheme}>
-      <img src={theme === 'light' ? '/images/icon-moon.svg' : '/images/icon-sun.svg'} />
+      <img
+        src={theme === 'light' ? '/images/icon-moon.svg' : '/images/icon-sun.svg'}
+        alt="Toggle for light/dark mode theme"
+      />
     </a>
   )
 }
