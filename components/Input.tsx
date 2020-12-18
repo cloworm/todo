@@ -129,7 +129,7 @@ const Input = ({
             dark:hover:filter-white
             hover:animate-spin-fast
             visible
-            sm:invisible
+            xl:invisible
             ${onDelete ? 'group-hover:visible' : 'invisible'}
           `}
           alt="Delete Todo"
