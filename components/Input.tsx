@@ -114,7 +114,7 @@ const Input = ({
         />
       </form>
 
-      <a id="delete" className="absolute top-0 right-0" onClick={onDelete}>
+      <a id={`delete-${todo.id}`} className="absolute top-0 right-0" onClick={onDelete}>
         <img
           src="/images/icon-cross.svg"
           className={`
