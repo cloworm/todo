@@ -1,7 +1,6 @@
 import { ReactElement } from 'react'
 import { motion } from 'framer-motion'
 
-// TODO add github link
 export default function Footer(): ReactElement {
   return (
     <motion.footer

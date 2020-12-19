@@ -60,8 +60,6 @@ const SortableItem: any = sortableElement(({
     <motion.div
       key={`div-${todo.id}`}
       variants={item}
-      // initial={{ opacity: 0, x: '-100%' }}
-      // transition={{ delayChildren: 0.3, staggerChildren: 0.2 }}
       animate={{ opacity: 1, x: 0, transition: { duration: 0.3 } }}
       exit={{ opacity: 0, x: '-100%', transition: { duration: 0.2 } }}
     >
