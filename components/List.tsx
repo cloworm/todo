@@ -1,8 +1,10 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, ReactNode, useCallback } from 'react'
 import { useRecoilValue } from 'recoil'
 import {
   SortableContainer as sortableContainer,
-  SortableElement as sortableElement
+  SortableElement as sortableElement,
+  SortEvent,
+  SortEventWithTag
 } from 'react-sortable-hoc'
 import { AnimatePresence, motion } from 'framer-motion'
 
@@ -36,26 +38,21 @@ const item = {
   }
 }
 
-const SortableItem: any = sortableElement(({
-  value: {
-    todo,
-    idx,
-    updateTodoCompleted,
-    updateTodoValue,
-    deleteTodo
-  }
-}:
-{ value:
-  {
-    todo: Todo,
-    idx: number,
-    deleteTodo: (idx: number) => void,
-    updateTodoCompleted: (idx: number, completed: boolean) => void,
-    updateTodoValue: (idx: number, value: string) => void
-  }
+interface SortableItemProps {
+  todo: Todo
+  idx: number
+  deleteTodo: (idx: number) => void
+  updateTodoCompleted: (idx: number, completed: boolean) => void
+  updateTodoValue: (idx: number, value: string) => void
 }
-) => {
 
+const SortableItem = sortableElement<SortableItemProps>(({
+  todo,
+  idx,
+  updateTodoCompleted,
+  updateTodoValue,
+  deleteTodo
+}: SortableItemProps) => {
   return (
     <motion.div
       key={`div-${todo.id}`}
@@ -76,7 +73,7 @@ const SortableItem: any = sortableElement(({
   )
 })
 
-const SortableContainer: any = sortableContainer(({ children }: { children: any}) => {
+const SortableContainer = sortableContainer(({ children }: { children: ReactNode }) => {
   return <div className="cursor-pointer">{children}</div>
 })
 
@@ -91,13 +88,13 @@ const List = (): ReactElement|null => {
   } = useTodos()
   const isMounted = useIsMounted()
 
-  const onSortEnd = ({ oldIndex, newIndex }: { oldIndex: number, newIndex: number}) => {
+  const onSortEnd = useCallback(({ oldIndex, newIndex }: { oldIndex: number, newIndex: number}) => {
     reorderTodo(oldIndex, newIndex)
-  }
+  }, [reorderTodo])
 
-  const shouldCancelStart = (e: any) => {
-    return e.target.tagName?.toLowerCase() === 'img'
-  }
+  const shouldCancelStart = useCallback(({ target }: SortEvent | SortEventWithTag): boolean => {
+    return 'tagName' in target && target.tagName?.toLowerCase() === 'img'
+  }, [])
 
   if (!isMounted) return null
 
@@ -110,14 +107,15 @@ const List = (): ReactElement|null => {
             <motion.div variants={container} initial="hidden" animate="visible">
               <AnimatePresence>
                 {todos.map((todo, idx) => {
-                  const value = {
-                    todo,
-                    idx,
-                    updateTodoValue,
-                    updateTodoCompleted,
-                    deleteTodo
-                  }
-                  return <SortableItem key={`item-${todo?.id}`} index={idx} value={value} />
+                  return <SortableItem
+                    key={`item-${todo?.id}`}
+                    index={idx}
+                    todo={todo}
+                    idx={idx}
+                    updateTodoValue={updateTodoValue}
+                    updateTodoCompleted={updateTodoCompleted}
+                    deleteTodo={deleteTodo}
+                  />
                 })}
               </AnimatePresence>
             </motion.div>
