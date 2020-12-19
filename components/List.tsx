@@ -73,7 +73,7 @@ const List = (): ReactElement|null => {
   return (
     <div className="mt-5 sm:mt-7">
       <div className="shadow-none sm:shadow-lg">
-        <div className="shadow-lg divide-y divide-light_veryLightGreyBlue dark:divide-dark_veryDarkGreyBlue sm:shadow-none bg-white dark:bg-dark_veryDarkDesaturatedBlue">
+        <div className="rounded shadow-lg divide-y divide-light_veryLightGreyBlue dark:divide-dark_veryDarkGreyBlue sm:shadow-none bg-white dark:bg-dark_veryDarkDesaturatedBlue">
 
           <SortableContainer onSortEnd={onSortEnd} shouldCancelStart={shouldCancelStart} distance={10}>
             {todos.map((todo, idx) => {
