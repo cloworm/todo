@@ -73,7 +73,11 @@ const SortableItem = sortableElement<SortableItemProps>(({
   )
 })
 
-const SortableContainer = sortableContainer(({ children }: { children: ReactNode }) => {
+interface SortableContainerProps {
+  children: ReactNode
+}
+
+const SortableContainer = sortableContainer<SortableContainerProps>(({ children }: SortableContainerProps) => {
   return <div className="cursor-pointer">{children}</div>
 })
 
