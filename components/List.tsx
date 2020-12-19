@@ -4,6 +4,7 @@ import {
   SortableContainer as sortableContainer,
   SortableElement as sortableElement
 } from 'react-sortable-hoc'
+import { AnimatePresence, motion } from 'framer-motion'
 
 import Input from './Input'
 import ListFilter from './ListFilter'
@@ -12,6 +13,28 @@ import filteredTodoState from '../recoil/selectors/todo-filter'
 import useTodos from './hooks/useTodos'
 import Todo from '../types/todo.type'
 import useIsMounted from './hooks/useIsMounted'
+
+const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.03,
+      duration: 0.5
+    },
+  }
+}
+
+const item = {
+  hidden: { x: '-100%', y: 0, opacity: 0 },
+  visible: {
+    x: 0,
+    y: 0,
+    opacity: 1
+  }
+}
 
 const SortableItem: any = sortableElement(({
   value: {
@@ -32,21 +55,29 @@ const SortableItem: any = sortableElement(({
   }
 }
 ) => {
+
   return (
-    <Input
-      key={`input-${todo.id}`}
-      todo={todo}
-      onInputChange={(value: string) => updateTodoValue(idx, value)}
-      onCheckboxChange={(completed: boolean) => updateTodoCompleted(idx, completed)}
-      onDelete={() => deleteTodo(idx)}
-      rounded={idx === 0}
-      readonly
-    />
+    <motion.div
+      key={`div-${todo.id}`}
+      variants={item}
+      animate={{ opacity: 1, x: 0, transition: { duration: 0.3 } }}
+      exit={{ opacity: 0, x: '-100%', transition: { duration: 0.2 } }}
+    >
+      <Input
+        key={`input-${todo.id}`}
+        todo={todo}
+        onInputChange={(value: string) => updateTodoValue(idx, value)}
+        onCheckboxChange={(completed: boolean) => updateTodoCompleted(idx, completed)}
+        onDelete={() => deleteTodo(idx)}
+        rounded={idx === 0}
+        readonly
+      />
+    </motion.div>
   )
 })
 
 const SortableContainer: any = sortableContainer(({ children }: { children: any}) => {
-  return <div className="cursor-pointer divide-y divide-light_veryLightGreyBlue dark:divide-dark_veryDarkGreyBlue">{children}</div>
+  return <div className="cursor-pointer">{children}</div>
 })
 
 const List = (): ReactElement|null => {
@@ -72,23 +103,32 @@ const List = (): ReactElement|null => {
 
   return (
     <div className="mt-5 sm:mt-7">
-      <div className="shadow-none sm:shadow-lg">
-        <div className="rounded shadow-lg divide-y divide-light_veryLightGreyBlue dark:divide-dark_veryDarkGreyBlue sm:shadow-none bg-white dark:bg-dark_veryDarkDesaturatedBlue">
+      <div className="rounded">
+        <div className="rounded">
 
           <SortableContainer onSortEnd={onSortEnd} shouldCancelStart={shouldCancelStart} distance={10}>
-            {todos.map((todo, idx) => {
-              const value = {
-                todo,
-                idx,
-                updateTodoValue,
-                updateTodoCompleted,
-                deleteTodo
-              }
-              return <SortableItem key={`item-${todo?.id}`} index={idx} value={value} />
-            })}
+            <motion.div variants={container} initial="hidden" animate="visible">
+              <AnimatePresence>
+                {todos.map((todo, idx) => {
+                  const value = {
+                    todo,
+                    idx,
+                    updateTodoValue,
+                    updateTodoCompleted,
+                    deleteTodo
+                  }
+                  return <SortableItem key={`item-${todo?.id}`} index={idx} value={value} />
+                })}
+              </AnimatePresence>
+            </motion.div>
           </SortableContainer>
 
-          <div className="text-sm px-6 py-4 flex items-center w-full">
+          <motion.div
+            className="text-sm px-6 py-4 flex items-center w-full bg-white dark:bg-dark_veryDarkDesaturatedBlue"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+          >
             <div className="flex flex-1">
               <ItemsLeft />
             </div>
@@ -97,21 +137,31 @@ const List = (): ReactElement|null => {
               <ListFilter />
             </div>
 
-            <div className="flex justify-end flex-1 text-light_darkGreyBlue hover:text-light_veryDarkGreyBlue dark:hover:text-white cursor-pointer">
+            <div className="flex justify-end flex-1 text-light_darkGreyBlue hover:text-light_veryDarkGreyBlue dark:hover:text-white transition ease-linear cursor-pointer">
               <div onClick={clearCompletedTodos}>Clear Completed</div>
             </div>
-          </div>
+          </motion.div>
 
         </div>
 
-        <div className="rounded sm:hidden mt-4 bg-white dark:bg-dark_veryDarkDesaturatedBlue px-6 py-3.5">
+        <motion.div
+          className="rounded sm:hidden mt-4 bg-white dark:bg-dark_veryDarkDesaturatedBlue px-6 py-3.5"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+        >
           <ListFilter />
-        </div>
+        </motion.div>
       </div>
 
-      <div className="mt-10 text-sm text-center text-light_darkGreyBlue dark:text-dark_veryDarkGreyBlue">
+      <motion.div
+        className="mt-10 text-sm text-center text-light_darkGreyBlue dark:text-dark_veryDarkGreyBlue"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.5 }}
+      >
         Drag and drop to reorder list
-      </div>
+      </motion.div>
     </div>
   )
 }
