@@ -9,7 +9,8 @@ const Layout = ({ children }: { children: ReactElement }): ReactElement => {
   return (
     <ThemeProvider attribute="class">
       <div className={`
-        transition-all ease-linear
+        transition-all
+        ease-linear
         bg-light_veryLightGreyBlue
         dark:bg-dark_veryDarkBlue
         min-h-screen

@@ -16,6 +16,9 @@ module.exports = {
         'mobile-light-background': 'url(\'/images/bg-mobile-light.jpg\')',
         'mobile-dark-background': 'url(\'/images/bg-mobile-dark.jpg\')'
       }),
+      borderWidth: {
+        '1': '1px'
+      },
       letterSpacing: {
         widest: '.4em'
       },
@@ -94,6 +97,10 @@ module.exports = {
         '.filter-white': {
           filter: 'brightness(0%) invert(1)',
         },
+        '.github': {
+          '-webkit-mask': 'url(\'/images/github.svg\') no-repeat center',
+          mask: 'url(\'/images/github.svg\') no-repeat center'
+        }
       }
 
       addUtilities(newUtilities, ['responsive', 'hover', 'dark'])
